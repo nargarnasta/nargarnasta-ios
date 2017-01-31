@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "401B7F641E3DD4E000723D5C"
-               BuildableName = "NarGarNasta (WatchKit).app"
-               BlueprintName = "NarGarNasta (WatchKit)"
+               BuildableName = "NarGarNasta WatchKit.app"
+               BlueprintName = "NarGarNasta WatchKit"
                ReferencedContainer = "container:NarGarNasta.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "401B7F641E3DD4E000723D5C"
-            BuildableName = "NarGarNasta (WatchKit).app"
-            BlueprintName = "NarGarNasta (WatchKit)"
+            BuildableName = "NarGarNasta WatchKit.app"
+            BlueprintName = "NarGarNasta WatchKit"
             ReferencedContainer = "container:NarGarNasta.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -72,8 +72,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "401B7F641E3DD4E000723D5C"
-            BuildableName = "NarGarNasta (WatchKit).app"
-            BlueprintName = "NarGarNasta (WatchKit)"
+            BuildableName = "NarGarNasta WatchKit.app"
+            BlueprintName = "NarGarNasta WatchKit"
             ReferencedContainer = "container:NarGarNasta.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
@@ -81,8 +81,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "401B7F641E3DD4E000723D5C"
-            BuildableName = "NarGarNasta (WatchKit).app"
-            BlueprintName = "NarGarNasta (WatchKit)"
+            BuildableName = "NarGarNasta WatchKit.app"
+            BlueprintName = "NarGarNasta WatchKit"
             ReferencedContainer = "container:NarGarNasta.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -102,8 +102,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "401B7F641E3DD4E000723D5C"
-            BuildableName = "NarGarNasta (WatchKit).app"
-            BlueprintName = "NarGarNasta (WatchKit)"
+            BuildableName = "NarGarNasta WatchKit.app"
+            BlueprintName = "NarGarNasta WatchKit"
             ReferencedContainer = "container:NarGarNasta.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
@@ -111,8 +111,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "401B7F641E3DD4E000723D5C"
-            BuildableName = "NarGarNasta (WatchKit).app"
-            BlueprintName = "NarGarNasta (WatchKit)"
+            BuildableName = "NarGarNasta WatchKit.app"
+            BlueprintName = "NarGarNasta WatchKit"
             ReferencedContainer = "container:NarGarNasta.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
