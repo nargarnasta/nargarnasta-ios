@@ -2,17 +2,28 @@ import Foundation
 
 class TripSearcher {
     func search(originLocation: Location, destinationLocation: Location, completion: @escaping ([Trip]) -> ()) {
-        let dataTask = URLSession.shared.dataTask(with: endpointURL(originLocation: originLocation, destinationLocation: destinationLocation)) { data, response, error in
+        let url = endpointURL(originLocation: originLocation, destinationLocation: destinationLocation)
+        
+        NSLog("Fetching trips (\(url))")
+        
+        let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 NSLog("Trip search failed: \(error), \(response)")
                 return
             }
             
-            guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let tripJsonObjects = jsonObject?["trips"] as? [[String: Any]] else {
-                NSLog("Malformed JSON: \(data)")
+            let jsonObject: [String: Any]
+            do {
+                jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+            } catch {
+                NSLog("Deserialization error: \(error)")
                 return
             }
-            
+            guard let tripJsonObjects = jsonObject["trips"] as? [[String: Any]] else {
+                NSLog("Malformed JSON: \(jsonObject)")
+                return
+            }
+    
             let trips: [Trip]
             do {
                 trips = try tripJsonObjects.map { try Trip(jsonObject: $0) }

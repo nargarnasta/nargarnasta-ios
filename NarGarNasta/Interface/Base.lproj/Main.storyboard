@@ -321,6 +321,7 @@
                     <connections>
                         <outlet property="arrivalLocation" destination="4C6-RU-DH3" id="fp3-zW-vHJ"/>
                         <outlet property="departureLocation" destination="E6K-yK-FdN" id="NDS-Lg-A3p"/>
+                        <outlet property="minutesLabel" destination="e68-qe-BAM" id="H1c-hw-8fV"/>
                         <outlet property="nextDepartureArrivalTime" destination="mRS-dP-Iw9" id="hpM-kB-IGn"/>
                         <outlet property="nextDepartureMinutesRemainingLabel" destination="v51-Xm-fdK" id="w6u-Jh-RnH"/>
                         <outlet property="subsequentTripsTableView" destination="YgA-FJ-lvP" id="zAd-NY-Myc"/>

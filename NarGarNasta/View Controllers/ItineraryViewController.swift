@@ -10,6 +10,7 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var subsequentTripsTableView: UITableView!
     @IBOutlet weak var departureLocation: UILabel!
     @IBOutlet weak var arrivalLocation: UILabel!
+    @IBOutlet weak var minutesLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,7 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     func updateLabels() {
         if let trips = trips, trips.count > 0 {
             self.nextDepartureMinutesRemainingLabel.text = minutesRemaining(to: trips.first!.departureTime)
-            self.nextDepartureMinutesRemainingLabel.isHidden = self.nextDepartureMinutesRemainingLabel.text == "Nu"
+            self.minutesLabel.isHidden = self.nextDepartureMinutesRemainingLabel.text == "Nu"
             self.nextDepartureArrivalTime.text = arrivalDescription(date: trips.first!.arrivalTime)
         }
         

@@ -1,10 +1,11 @@
 import UIKit
+import WatchConnectivity
 
 protocol NewItineraryViewControllerDelegate {
     func newItineraryViewController(_ viewController: NewItineraryViewController, didCreateItinerary itinerary: Itinerary)
 }
 
-class NewItineraryViewController: UIViewController, LocationSuggestionViewControllerDelegate {
+class NewItineraryViewController: UIViewController, LocationSuggestionViewControllerDelegate, WCSessionDelegate {
     var delegate: NewItineraryViewControllerDelegate?
     let locationSearcher = LocationSearcher()
     @IBOutlet var location1Field: UITextField?
@@ -15,6 +16,27 @@ class NewItineraryViewController: UIViewController, LocationSuggestionViewContro
     var location2SuggestionsViewController: LocationSuggestionViewController!
     var location1: Location?
     var location2: Location?
+    var watchSession: WCSession?
+    
+    override func awakeFromNib() {
+        if WCSession.isSupported() {
+            watchSession = WCSession.default()
+            watchSession?.delegate = self
+            watchSession?.activate()
+        }
+    }
+    
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        NSLog("Activation did complete, error (if any): \(error)")
+    }
+    
+    public func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +83,12 @@ class NewItineraryViewController: UIViewController, LocationSuggestionViewContro
         }
         
         let itinerary = Itinerary(location1: location1, location2: location2)
+        do {
+            NSLog("Setting app context")
+            try watchSession?.updateApplicationContext([ "Itinerary": itinerary.dictionaryRepresentation() ])
+        } catch {
+            NSLog("Updating watch context failed: \(error)")
+        }
         delegate?.newItineraryViewController(self, didCreateItinerary: itinerary)
     }
     

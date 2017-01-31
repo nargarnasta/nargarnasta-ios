@@ -1,0 +1,2 @@
+// Make a copy of this named Settings.swift and add all sensitive information
+let ResrobotAPIKey = ""

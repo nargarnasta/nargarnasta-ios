@@ -1,0 +1,718 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		400BC15C1E3D0A5300EE1042 /* LocationSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC15B1E3D0A5300EE1042 /* LocationSuggestionViewController.swift */; };
+		401B7F5D1E3D4A8200723D5C /* TripSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */; };
+		401B7F5F1E3D4B6900723D5C /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5E1E3D4B6900723D5C /* Trip.swift */; };
+		401B7F691E3DD4E100723D5C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 401B7F671E3DD4E100723D5C /* Interface.storyboard */; };
+		401B7F6B1E3DD4E100723D5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401B7F6A1E3DD4E100723D5C /* Assets.xcassets */; };
+		401B7F721E3DD4E100723D5C /* NarGarNasta (WatchKit Extension).appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 401B7F711E3DD4E100723D5C /* NarGarNasta (WatchKit Extension).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		401B7F771E3DD4E100723D5C /* ItineraryInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F761E3DD4E100723D5C /* ItineraryInterfaceController.swift */; };
+		401B7F791E3DD4E100723D5C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F781E3DD4E100723D5C /* ExtensionDelegate.swift */; };
+		401B7F7B1E3DD4E100723D5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401B7F7A1E3DD4E100723D5C /* Assets.xcassets */; };
+		401B7F7F1E3DD4E100723D5C /* NarGarNasta (WatchKit).app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 401B7F651E3DD4E000723D5C /* NarGarNasta (WatchKit).app */; };
+		401B7F881E3DDD9800723D5C /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCAB91E3CE71A002F18C7 /* Itinerary.swift */; };
+		401B7F891E3DDD9A00723D5C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCAC31E3CF37A002F18C7 /* Location.swift */; };
+		401B7F8A1E3DDD9F00723D5C /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5E1E3D4B6900723D5C /* Trip.swift */; };
+		401B7F8B1E3DDDA500723D5C /* TripSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */; };
+		403DCAB41E3CE613002F18C7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 403DCAB31E3CE613002F18C7 /* .gitignore */; };
+		403DCABA1E3CE71A002F18C7 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCAB91E3CE71A002F18C7 /* Itinerary.swift */; };
+		403DCABE1E3CEE58002F18C7 /* ItineraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCABD1E3CEE58002F18C7 /* ItineraryViewController.swift */; };
+		403DCAC01E3CEE74002F18C7 /* NewItineraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCABF1E3CEE74002F18C7 /* NewItineraryViewController.swift */; };
+		403DCAC21E3CF124002F18C7 /* LocationSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCAC11E3CF124002F18C7 /* LocationSearcher.swift */; };
+		403DCAC41E3CF37A002F18C7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCAC31E3CF37A002F18C7 /* Location.swift */; };
+		405E21951E3CDFAF004598C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405E21941E3CDFAF004598C4 /* AppDelegate.swift */; };
+		405E21971E3CDFAF004598C4 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405E21961E3CDFAF004598C4 /* RootViewController.swift */; };
+		405E219A1E3CDFAF004598C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405E21981E3CDFAF004598C4 /* Main.storyboard */; };
+		405E219C1E3CDFAF004598C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405E219B1E3CDFAF004598C4 /* Assets.xcassets */; };
+		405E219F1E3CDFAF004598C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405E219D1E3CDFAF004598C4 /* LaunchScreen.storyboard */; };
+		405ECAA11E3F4581000A289A /* UpcomingTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405ECAA01E3F4581000A289A /* UpcomingTrips.swift */; };
+		405ECAA21E3F4581000A289A /* UpcomingTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405ECAA01E3F4581000A289A /* UpcomingTrips.swift */; };
+		40BFCCD61E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
+		40BFCCD71E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		401B7F731E3DD4E100723D5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 405E21891E3CDFAE004598C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 401B7F701E3DD4E100723D5C;
+			remoteInfo = "NarGarNastaWatchKit Extension";
+		};
+		401B7F7D1E3DD4E100723D5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 405E21891E3CDFAE004598C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 401B7F641E3DD4E000723D5C;
+			remoteInfo = NarGarNastaWatchKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		401B7F831E3DD4E100723D5C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				401B7F721E3DD4E100723D5C /* NarGarNasta (WatchKit Extension).appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		401B7F871E3DD4E100723D5C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				401B7F7F1E3DD4E100723D5C /* NarGarNasta (WatchKit).app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		400BC15B1E3D0A5300EE1042 /* LocationSuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSuggestionViewController.swift; sourceTree = "<group>"; };
+		401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSearcher.swift; sourceTree = "<group>"; };
+		401B7F5E1E3D4B6900723D5C /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		401B7F651E3DD4E000723D5C /* NarGarNasta (WatchKit).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NarGarNasta (WatchKit).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		401B7F681E3DD4E100723D5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		401B7F6A1E3DD4E100723D5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		401B7F6C1E3DD4E100723D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		401B7F711E3DD4E100723D5C /* NarGarNasta (WatchKit Extension).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NarGarNasta (WatchKit Extension).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		401B7F761E3DD4E100723D5C /* ItineraryInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryInterfaceController.swift; sourceTree = "<group>"; };
+		401B7F781E3DD4E100723D5C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		401B7F7A1E3DD4E100723D5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		401B7F7C1E3DD4E100723D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		403DCAB31E3CE613002F18C7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		403DCAB91E3CE71A002F18C7 /* Itinerary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
+		403DCABD1E3CEE58002F18C7 /* ItineraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryViewController.swift; sourceTree = "<group>"; };
+		403DCABF1E3CEE74002F18C7 /* NewItineraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItineraryViewController.swift; sourceTree = "<group>"; };
+		403DCAC11E3CF124002F18C7 /* LocationSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearcher.swift; sourceTree = "<group>"; };
+		403DCAC31E3CF37A002F18C7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		405E21911E3CDFAE004598C4 /* NarGarNasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarGarNasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		405E21941E3CDFAF004598C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		405E21961E3CDFAF004598C4 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		405E21991E3CDFAF004598C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		405E219B1E3CDFAF004598C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		405E219E1E3CDFAF004598C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		405E21A01E3CDFAF004598C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		405ECAA01E3F4581000A289A /* UpcomingTrips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingTrips.swift; sourceTree = "<group>"; };
+		40BFCCD01E4115D800E255D2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		40BFCCD31E41166600E255D2 /* Settings.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Settings.swift.example; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		401B7F6E1E3DD4E100723D5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		405E218E1E3CDFAE004598C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		401B7F661E3DD4E100723D5C /* NarGarNasta (WatchKit) */ = {
+			isa = PBXGroup;
+			children = (
+				401B7F671E3DD4E100723D5C /* Interface.storyboard */,
+				401B7F6A1E3DD4E100723D5C /* Assets.xcassets */,
+				401B7F6C1E3DD4E100723D5C /* Info.plist */,
+			);
+			path = "NarGarNasta (WatchKit)";
+			sourceTree = "<group>";
+		};
+		401B7F751E3DD4E100723D5C /* NarGarNasta (WatchKit Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				405ECA9F1E3F3E33000A289A /* Interface Controllers */,
+				401B7F781E3DD4E100723D5C /* ExtensionDelegate.swift */,
+				401B7F7A1E3DD4E100723D5C /* Assets.xcassets */,
+				401B7F7C1E3DD4E100723D5C /* Info.plist */,
+			);
+			path = "NarGarNasta (WatchKit Extension)";
+			sourceTree = "<group>";
+		};
+		403DCAB21E3CE033002F18C7 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				405E21981E3CDFAF004598C4 /* Main.storyboard */,
+				405E219B1E3CDFAF004598C4 /* Assets.xcassets */,
+				405E219D1E3CDFAF004598C4 /* LaunchScreen.storyboard */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		403DCAB51E3CE660002F18C7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				403DCAC11E3CF124002F18C7 /* LocationSearcher.swift */,
+				401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		403DCAB81E3CE6EA002F18C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				403DCAB91E3CE71A002F18C7 /* Itinerary.swift */,
+				403DCAC31E3CF37A002F18C7 /* Location.swift */,
+				401B7F5E1E3D4B6900723D5C /* Trip.swift */,
+				405ECAA01E3F4581000A289A /* UpcomingTrips.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		405E21881E3CDFAE004598C4 = {
+			isa = PBXGroup;
+			children = (
+				405E21931E3CDFAE004598C4 /* NarGarNasta */,
+				401B7F661E3DD4E100723D5C /* NarGarNasta (WatchKit) */,
+				401B7F751E3DD4E100723D5C /* NarGarNasta (WatchKit Extension) */,
+				405ECA9E1E3F3A32000A289A /* Shared */,
+				405E21921E3CDFAE004598C4 /* Products */,
+				403DCAB31E3CE613002F18C7 /* .gitignore */,
+			);
+			sourceTree = "<group>";
+		};
+		405E21921E3CDFAE004598C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				405E21911E3CDFAE004598C4 /* NarGarNasta.app */,
+				401B7F651E3DD4E000723D5C /* NarGarNasta (WatchKit).app */,
+				401B7F711E3DD4E100723D5C /* NarGarNasta (WatchKit Extension).appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		405E21931E3CDFAE004598C4 /* NarGarNasta */ = {
+			isa = PBXGroup;
+			children = (
+				403DCAB21E3CE033002F18C7 /* Interface */,
+				405E21A61E3CDFE5004598C4 /* View Controllers */,
+				405E21941E3CDFAF004598C4 /* AppDelegate.swift */,
+				405E21A01E3CDFAF004598C4 /* Info.plist */,
+			);
+			path = NarGarNasta;
+			sourceTree = "<group>";
+		};
+		405E21A61E3CDFE5004598C4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				405E21961E3CDFAF004598C4 /* RootViewController.swift */,
+				403DCABD1E3CEE58002F18C7 /* ItineraryViewController.swift */,
+				403DCABF1E3CEE74002F18C7 /* NewItineraryViewController.swift */,
+				400BC15B1E3D0A5300EE1042 /* LocationSuggestionViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		405ECA9E1E3F3A32000A289A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				403DCAB81E3CE6EA002F18C7 /* Models */,
+				403DCAB51E3CE660002F18C7 /* Services */,
+				40BFCCD01E4115D800E255D2 /* Settings.swift */,
+				40BFCCD31E41166600E255D2 /* Settings.swift.example */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		405ECA9F1E3F3E33000A289A /* Interface Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				401B7F761E3DD4E100723D5C /* ItineraryInterfaceController.swift */,
+			);
+			path = "Interface Controllers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		401B7F641E3DD4E000723D5C /* NarGarNasta (WatchKit) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 401B7F841E3DD4E100723D5C /* Build configuration list for PBXNativeTarget "NarGarNasta (WatchKit)" */;
+			buildPhases = (
+				401B7F631E3DD4E000723D5C /* Resources */,
+				401B7F831E3DD4E100723D5C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				401B7F741E3DD4E100723D5C /* PBXTargetDependency */,
+			);
+			name = "NarGarNasta (WatchKit)";
+			productName = NarGarNastaWatchKit;
+			productReference = 401B7F651E3DD4E000723D5C /* NarGarNasta (WatchKit).app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		401B7F701E3DD4E100723D5C /* NarGarNasta (WatchKit Extension) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 401B7F801E3DD4E100723D5C /* Build configuration list for PBXNativeTarget "NarGarNasta (WatchKit Extension)" */;
+			buildPhases = (
+				401B7F6D1E3DD4E100723D5C /* Sources */,
+				401B7F6E1E3DD4E100723D5C /* Frameworks */,
+				401B7F6F1E3DD4E100723D5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NarGarNasta (WatchKit Extension)";
+			productName = "NarGarNastaWatchKit Extension";
+			productReference = 401B7F711E3DD4E100723D5C /* NarGarNasta (WatchKit Extension).appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		405E21901E3CDFAE004598C4 /* NarGarNasta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 405E21A31E3CDFAF004598C4 /* Build configuration list for PBXNativeTarget "NarGarNasta" */;
+			buildPhases = (
+				405E218D1E3CDFAE004598C4 /* Sources */,
+				405E218E1E3CDFAE004598C4 /* Frameworks */,
+				405E218F1E3CDFAE004598C4 /* Resources */,
+				401B7F871E3DD4E100723D5C /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				401B7F7E1E3DD4E100723D5C /* PBXTargetDependency */,
+			);
+			name = NarGarNasta;
+			productName = NarGarNasta;
+			productReference = 405E21911E3CDFAE004598C4 /* NarGarNasta.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		405E21891E3CDFAE004598C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "När går nästa?";
+				TargetAttributes = {
+					401B7F641E3DD4E000723D5C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = Q6ZDFFEPQD;
+						ProvisioningStyle = Manual;
+					};
+					401B7F701E3DD4E100723D5C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = Q6ZDFFEPQD;
+						ProvisioningStyle = Manual;
+					};
+					405E21901E3CDFAE004598C4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = Q6ZDFFEPQD;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 405E218C1E3CDFAE004598C4 /* Build configuration list for PBXProject "NarGarNasta" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 405E21881E3CDFAE004598C4;
+			productRefGroup = 405E21921E3CDFAE004598C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				405E21901E3CDFAE004598C4 /* NarGarNasta */,
+				401B7F641E3DD4E000723D5C /* NarGarNasta (WatchKit) */,
+				401B7F701E3DD4E100723D5C /* NarGarNasta (WatchKit Extension) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		401B7F631E3DD4E000723D5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				401B7F6B1E3DD4E100723D5C /* Assets.xcassets in Resources */,
+				401B7F691E3DD4E100723D5C /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		401B7F6F1E3DD4E100723D5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				401B7F7B1E3DD4E100723D5C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		405E218F1E3CDFAE004598C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				403DCAB41E3CE613002F18C7 /* .gitignore in Resources */,
+				405E219F1E3CDFAF004598C4 /* LaunchScreen.storyboard in Resources */,
+				405E219C1E3CDFAF004598C4 /* Assets.xcassets in Resources */,
+				405E219A1E3CDFAF004598C4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		401B7F6D1E3DD4E100723D5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				401B7F8A1E3DDD9F00723D5C /* Trip.swift in Sources */,
+				405ECAA21E3F4581000A289A /* UpcomingTrips.swift in Sources */,
+				401B7F791E3DD4E100723D5C /* ExtensionDelegate.swift in Sources */,
+				401B7F881E3DDD9800723D5C /* Itinerary.swift in Sources */,
+				401B7F8B1E3DDDA500723D5C /* TripSearcher.swift in Sources */,
+				401B7F891E3DDD9A00723D5C /* Location.swift in Sources */,
+				40BFCCD71E41167200E255D2 /* Settings.swift in Sources */,
+				401B7F771E3DD4E100723D5C /* ItineraryInterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		405E218D1E3CDFAE004598C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				401B7F5F1E3D4B6900723D5C /* Trip.swift in Sources */,
+				405E21971E3CDFAF004598C4 /* RootViewController.swift in Sources */,
+				40BFCCD61E41167200E255D2 /* Settings.swift in Sources */,
+				405ECAA11E3F4581000A289A /* UpcomingTrips.swift in Sources */,
+				401B7F5D1E3D4A8200723D5C /* TripSearcher.swift in Sources */,
+				400BC15C1E3D0A5300EE1042 /* LocationSuggestionViewController.swift in Sources */,
+				403DCAC21E3CF124002F18C7 /* LocationSearcher.swift in Sources */,
+				403DCABA1E3CE71A002F18C7 /* Itinerary.swift in Sources */,
+				403DCABE1E3CEE58002F18C7 /* ItineraryViewController.swift in Sources */,
+				405E21951E3CDFAF004598C4 /* AppDelegate.swift in Sources */,
+				403DCAC01E3CEE74002F18C7 /* NewItineraryViewController.swift in Sources */,
+				403DCAC41E3CF37A002F18C7 /* Location.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		401B7F741E3DD4E100723D5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 401B7F701E3DD4E100723D5C /* NarGarNasta (WatchKit Extension) */;
+			targetProxy = 401B7F731E3DD4E100723D5C /* PBXContainerItemProxy */;
+		};
+		401B7F7E1E3DD4E100723D5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 401B7F641E3DD4E000723D5C /* NarGarNasta (WatchKit) */;
+			targetProxy = 401B7F7D1E3DD4E100723D5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		401B7F671E3DD4E100723D5C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				401B7F681E3DD4E100723D5C /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		405E21981E3CDFAF004598C4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				405E21991E3CDFAF004598C4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		405E219D1E3CDFAF004598C4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				405E219E1E3CDFAF004598C4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		401B7F811E3DD4E100723D5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APP_BUNDLE_IDENTIFIER = se.nargarnasta.NarGarNasta.debug.watchkit;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = Q6ZDFFEPQD;
+				INFOPLIST_FILE = "NarGarNasta (WatchKit Extension)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = se.nargarnasta.NarGarNasta.debug.watchkit.extension;
+				PRODUCT_MODULE_NAME = NarGarNastaWatchKitExtension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "c5077c47-d661-41c0-ae50-a4440c3b6bbf";
+				PROVISIONING_PROFILE_SPECIFIER = "NarGarNasta debug WatchKit Extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		401B7F821E3DD4E100723D5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APP_BUNDLE_IDENTIFIER = se.nargarnasta.NarGarNasta.watchkit;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = Q6ZDFFEPQD;
+				INFOPLIST_FILE = "NarGarNasta (WatchKit Extension)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = se.nargarnasta.NarGarNasta.watchkit.extension;
+				PRODUCT_MODULE_NAME = NarGarNastaWatchKitExtension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "29e36aa0-f997-4ce7-b72b-ddb98c193ec0";
+				PROVISIONING_PROFILE_SPECIFIER = "NarGarNasta WatchKit Extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		401B7F851E3DD4E100723D5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				COMPANION_APP_BUNDLE_IDENTIFIER = se.nargarnasta.NarGarNasta.debug;
+				DEVELOPMENT_TEAM = Q6ZDFFEPQD;
+				IBSC_MODULE = NarGarNastaWatchKitExtension;
+				INFOPLIST_FILE = "NarGarNasta (WatchKit)/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = se.nargarnasta.NarGarNasta.debug.watchkit;
+				PRODUCT_MODULE_NAME = NarGarNastaWatchKitExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8a3e4324-25b4-4e38-8b82-9100930104d6";
+				PROVISIONING_PROFILE_SPECIFIER = "NarGarNasta debug WatchKit";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		401B7F861E3DD4E100723D5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				COMPANION_APP_BUNDLE_IDENTIFIER = se.nargarnasta.NarGarNasta;
+				DEVELOPMENT_TEAM = Q6ZDFFEPQD;
+				IBSC_MODULE = NarGarNastaWatchKitExtension;
+				INFOPLIST_FILE = "NarGarNasta (WatchKit)/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = se.nargarnasta.NarGarNasta.watchkit;
+				PRODUCT_MODULE_NAME = NarGarNastaWatchKitExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bc1a6e91-e435-467d-a88c-d28ad5eb6221";
+				PROVISIONING_PROFILE_SPECIFIER = "NarGarNasta WatchKit";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		405E21A11E3CDFAF004598C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		405E21A21E3CDFAF004598C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		405E21A41E3CDFAF004598C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = Q6ZDFFEPQD;
+				INFOPLIST_FILE = NarGarNasta/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = se.nargarnasta.NarGarNasta.debug;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cb4ee726-92df-4883-b5a5-bc23b76bb4cd";
+				PROVISIONING_PROFILE_SPECIFIER = "NarGarNasta debug";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		405E21A51E3CDFAF004598C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = Q6ZDFFEPQD;
+				INFOPLIST_FILE = NarGarNasta/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = se.nargarnasta.NarGarNasta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "28288320-5bec-45dd-8d2a-4139e841783b";
+				PROVISIONING_PROFILE_SPECIFIER = NarGarNasta;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		401B7F801E3DD4E100723D5C /* Build configuration list for PBXNativeTarget "NarGarNasta (WatchKit Extension)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				401B7F811E3DD4E100723D5C /* Debug */,
+				401B7F821E3DD4E100723D5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		401B7F841E3DD4E100723D5C /* Build configuration list for PBXNativeTarget "NarGarNasta (WatchKit)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				401B7F851E3DD4E100723D5C /* Debug */,
+				401B7F861E3DD4E100723D5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		405E218C1E3CDFAE004598C4 /* Build configuration list for PBXProject "NarGarNasta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				405E21A11E3CDFAF004598C4 /* Debug */,
+				405E21A21E3CDFAF004598C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		405E21A31E3CDFAF004598C4 /* Build configuration list for PBXNativeTarget "NarGarNasta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				405E21A41E3CDFAF004598C4 /* Debug */,
+				405E21A51E3CDFAF004598C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 405E21891E3CDFAE004598C4 /* Project object */;
+}

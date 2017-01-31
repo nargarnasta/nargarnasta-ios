@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
+    </dependencies>
+    <scenes>
+        <!--När går nästa?-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="När går nästa?" id="AgC-eL-Hgc" customClass="ItineraryInterfaceController" customModule="NarGarNastaWatchKitExtension" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="Till Hötorget" id="EjJ-HY-Qjm"/>
+                        <group width="1" alignment="left" verticalAlignment="center" id="umb-Zx-WS3">
+                            <items>
+                                <timer alignment="center" verticalAlignment="bottom" id="qpr-b9-uT3">
+                                    <fontDescription key="font" type="system" pointSize="60"/>
+                                    <calendarUnit key="units" minute="YES"/>
+                                </timer>
+                                <label alignment="center" hidden="YES" text="-" id="vWu-Fg-Maf">
+                                    <fontDescription key="font" type="system" pointSize="60"/>
+                                </label>
+                                <group height="30" alignment="center" verticalAlignment="bottom" layout="vertical" id="ygD-rs-HxD">
+                                    <items>
+                                        <label alignment="center" text="min" id="uwo-hX-2qw"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="center" id="q0T-IJ-2aS">
+                            <items>
+                                <label alignment="center" text="Du är framme" id="BVq-05-1Qv">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="arrivalTimeLabel" destination="BVq-05-1Qv" id="bIs-0F-2CT"/>
+                        <outlet property="departureTimer" destination="qpr-b9-uT3" id="DJ6-3o-Iyj"/>
+                        <outlet property="departureTimerPlaceholderLabel" destination="vWu-Fg-Maf" id="dZF-r1-KDr"/>
+                        <outlet property="destinationLabel" destination="EjJ-HY-Qjm" id="AcI-T4-MEF"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+    </scenes>
+</document>

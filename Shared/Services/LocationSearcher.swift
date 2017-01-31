@@ -28,10 +28,6 @@ class LocationSearcher {
     }
     
     private func endpointURL(query: String) -> URL {
-        return URL(string: "https://api.resrobot.se/v2/location.name?key=\(apiKey())&format=json&input=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)")!
-    }
-    
-    private func apiKey() -> String {
-        return ""
+        return URL(string: "https://api.resrobot.se/v2/location.name?key=\(ResrobotAPIKey)&format=json&input=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)")!
     }
 }
