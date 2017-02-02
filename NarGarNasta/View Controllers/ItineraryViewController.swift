@@ -52,16 +52,12 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.nextDepartureMinutesRemainingLabel.text = "-"
-    self.nextDepartureArrivalTime.text = ""
     subsequentTripsTableView.backgroundColor = UIColor.clear
     subsequentTripsTableView.tableFooterView = UIView()
+    self.view.backgroundColor = UIColor.clear
 
-    if let backgroundImage = UIImage(named: "Background") {
-      self.view.backgroundColor = UIColor(patternImage: backgroundImage)
-    } else {
-      NSLog("Could not find background image")
-    }
+    self.nextDepartureMinutesRemainingLabel.text = "-"
+    self.nextDepartureArrivalTime.text = ""
 
     departureLocation.text = itinerary.location1.name
     arrivalLocation.text = itinerary.location2.name

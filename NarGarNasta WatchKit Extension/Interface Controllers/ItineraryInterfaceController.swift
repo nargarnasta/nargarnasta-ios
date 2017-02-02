@@ -90,7 +90,7 @@ class ItineraryInterfaceController: WKInterfaceController, WCSessionDelegate {
   }
 
   // MARK: - WCSessionDelegate
-  
+
   public func session(
     _ session: WCSession,
     activationDidCompleteWith activationState: WCSessionActivationState,

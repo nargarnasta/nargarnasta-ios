@@ -5,11 +5,17 @@ NewItineraryViewControllerDelegate {
   var itineraries = [Itinerary]()
   var pageViewControllers: [UIViewController] = []
 
-  required init?(coder: NSCoder) {
-    super.init(coder: coder)
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
     dataSource = self
     populateViewControllers()
+
+    if let backgroundImage = UIImage(named: "Background") {
+      self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+    } else {
+      NSLog("Could not find background image")
+    }
   }
 
   private func populateViewControllers() {

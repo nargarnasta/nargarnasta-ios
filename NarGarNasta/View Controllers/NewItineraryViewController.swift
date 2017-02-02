@@ -43,14 +43,30 @@ LocationSuggestionViewControllerDelegate, WCSessionDelegate {
 
   // MARK: - UIViewController
 
-  override func awakeFromNib() {
-    super.awakeFromNib()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
     if WCSession.isSupported() {
       watchSession = WCSession.default()
       watchSession?.delegate = self
       watchSession?.activate()
     }
+
+    self.view.backgroundColor = UIColor.clear
+
+    guard
+      let location1SuggestionsView = location1SuggestionsView,
+      let location2SuggestionsView = location2SuggestionsView
+      else {
+        fatalError("Interface not configured correctly")
+    }
+
+    location1SuggestionsViewController =
+      LocationSuggestionViewController(tableView: location1SuggestionsView)
+    location1SuggestionsViewController.delegate = self
+    location2SuggestionsViewController =
+      LocationSuggestionViewController(tableView: location2SuggestionsView)
+    location2SuggestionsViewController.delegate = self
   }
 
   // MARK: - LocationSuggestionViewControllerDelegate
@@ -104,28 +120,4 @@ LocationSuggestionViewControllerDelegate, WCSessionDelegate {
 
   func sessionDidBecomeInactive(_ session: WCSession) { }
   func sessionDidDeactivate(_ session: WCSession) { }
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    guard
-      let location1SuggestionsView = location1SuggestionsView,
-      let location2SuggestionsView = location2SuggestionsView
-      else {
-        fatalError("Interface not configured correctly")
-    }
-
-    location1SuggestionsViewController =
-      LocationSuggestionViewController(tableView: location1SuggestionsView)
-    location1SuggestionsViewController.delegate = self
-    location2SuggestionsViewController =
-      LocationSuggestionViewController(tableView: location2SuggestionsView)
-    location2SuggestionsViewController.delegate = self
-
-    if let backgroundImage = UIImage(named: "Background") {
-      self.view.backgroundColor = UIColor(patternImage: backgroundImage)
-    } else {
-      NSLog("Could not find background image")
-    }
-  }
 }
