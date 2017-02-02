@@ -1,0 +1,15 @@
+opt_in_rules:
+  - closure_spacing
+  - empty_count
+  - explicit_init
+  - first_where
+  - force_unwrapping
+  - number_separator
+  - operator_usage_whitespace
+  - overridden_super_call
+disabled_rules:
+  - opening_brace # Not for multi-line statements
+line_length:
+  warning: 80
+variable_name:
+  min_length: 2
