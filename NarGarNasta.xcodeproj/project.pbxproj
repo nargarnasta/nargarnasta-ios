@@ -34,6 +34,7 @@
 		405E219F1E3CDFAF004598C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405E219D1E3CDFAF004598C4 /* LaunchScreen.storyboard */; };
 		405ECAA11E3F4581000A289A /* UpcomingTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405ECAA01E3F4581000A289A /* UpcomingTrips.swift */; };
 		405ECAA21E3F4581000A289A /* UpcomingTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405ECAA01E3F4581000A289A /* UpcomingTrips.swift */; };
+		4092E2C71E436B680008CF67 /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092E2C61E436B680008CF67 /* PreferencesStore.swift */; };
 		40BFCCD61E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
 		40BFCCD71E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +110,7 @@
 		405ECAA01E3F4581000A289A /* UpcomingTrips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingTrips.swift; sourceTree = "<group>"; };
 		4092E2C21E42210A0008CF67 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4092E2C41E4227240008CF67 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4092E2C61E436B680008CF67 /* PreferencesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
 		40BFCCD01E4115D800E255D2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		40BFCCD31E41166600E255D2 /* Settings.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Settings.swift.example; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +213,7 @@
 			children = (
 				403DCAB21E3CE033002F18C7 /* Interface */,
 				405E21A61E3CDFE5004598C4 /* View Controllers */,
+				4092E2C51E43687D0008CF67 /* Services */,
 				405E21941E3CDFAF004598C4 /* AppDelegate.swift */,
 				405E21A01E3CDFAF004598C4 /* Info.plist */,
 			);
@@ -245,6 +248,14 @@
 				401B7F761E3DD4E100723D5C /* ItineraryInterfaceController.swift */,
 			);
 			path = "Interface Controllers";
+			sourceTree = "<group>";
+		};
+		4092E2C51E43687D0008CF67 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4092E2C61E436B680008CF67 /* PreferencesStore.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +447,7 @@
 				405E21951E3CDFAF004598C4 /* AppDelegate.swift in Sources */,
 				403DCAC01E3CEE74002F18C7 /* NewItineraryViewController.swift in Sources */,
 				403DCAC41E3CF37A002F18C7 /* Location.swift in Sources */,
+				4092E2C71E436B680008CF67 /* PreferencesStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,8 +2,14 @@ import UIKit
 
 class RootViewController: UIPageViewController, UIPageViewControllerDataSource,
 NewItineraryViewControllerDelegate {
-  var itineraries = [Itinerary]()
+  let preferencesStore: PreferencesStore
   var pageViewControllers: [UIViewController] = []
+
+  required init?(coder: NSCoder) {
+    preferencesStore = AppDelegate.shared.preferencesStore
+
+    super.init(coder: coder)
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -19,7 +25,7 @@ NewItineraryViewControllerDelegate {
   }
 
   private func populateViewControllers() {
-    for itinerary in itineraries {
+    for itinerary in preferencesStore.itineraries {
       pageViewControllers.append(
         createItineraryViewController(itinerary: itinerary)
       )
@@ -116,7 +122,7 @@ NewItineraryViewControllerDelegate {
     _ viewController: NewItineraryViewController,
     didCreateItinerary itinerary: Itinerary
     ) {
-    itineraries.append(itinerary)
+    preferencesStore.itineraries.append(itinerary)
 
     let newViewController = createItineraryViewController(itinerary: itinerary)
     pageViewControllers.insert(
