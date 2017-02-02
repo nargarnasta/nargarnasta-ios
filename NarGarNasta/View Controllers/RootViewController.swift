@@ -1,38 +1,65 @@
 import UIKit
 
-class RootViewController: UIPageViewController, UIPageViewControllerDelegate,
-UIPageViewControllerDataSource, NewItineraryViewControllerDelegate {
+class RootViewController: UIPageViewController, UIPageViewControllerDataSource,
+NewItineraryViewControllerDelegate {
   var itineraries = [Itinerary]()
   var pageViewControllers: [UIViewController] = []
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
 
-    delegate = self
     dataSource = self
     populateViewControllers()
   }
+
+  private func populateViewControllers() {
+    for itinerary in itineraries {
+      pageViewControllers.append(
+        createItineraryViewController(itinerary: itinerary)
+      )
+    }
+
+    guard
+      let newItineraryViewController = UIStoryboard(name: "Main", bundle: nil)
+        .instantiateViewController(withIdentifier: "newItinerary")
+        as? NewItineraryViewController
+      else {
+        fatalError()
+    }
+    newItineraryViewController.delegate = self
+
+    pageViewControllers.append(newItineraryViewController)
+
+    guard let firstViewController = pageViewControllers.first else {
+      fatalError()
+    }
+
+    setViewControllers(
+      [firstViewController], direction: .forward, animated: false
+    ) { _ in }
+  }
+
+  private func createItineraryViewController(itinerary: Itinerary)
+    -> ItineraryViewController {
+      guard
+        let viewController = UIStoryboard(name: "Main", bundle: nil)
+          .instantiateViewController(withIdentifier: "itinerary")
+          as? ItineraryViewController
+        else {
+          fatalError()
+      }
+
+      viewController.itinerary = itinerary
+      return viewController
+  }
+
+  // MARK: - UIViewController
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
 
-  func newItineraryViewController(
-    _ viewController: NewItineraryViewController,
-    didCreateItinerary itinerary: Itinerary
-  ) {
-    itineraries.append(itinerary)
-
-    let newViewController = createItineraryViewController(itinerary: itinerary)
-    pageViewControllers.insert(
-      newViewController,
-      at: pageViewControllers.count - 1
-    )
-
-    setViewControllers(
-      [newViewController], direction: .reverse, animated: true
-    ) { _ in }
-  }
+  // MARK: - UIPageViewControllerDataSource
 
   func pageViewController(
     _ pageViewController: UIPageViewController,
@@ -77,44 +104,22 @@ UIPageViewControllerDataSource, NewItineraryViewControllerDelegate {
     return activeIndex
   }
 
-  private func populateViewControllers() {
-    for itinerary in itineraries {
-      pageViewControllers.append(
-        createItineraryViewController(itinerary: itinerary)
-      )
-    }
+  // MARK: - NewItineraryViewControllerDelegate
 
-    guard
-      let newItineraryViewController = UIStoryboard(name: "Main", bundle: nil)
-        .instantiateViewController(withIdentifier: "newItinerary")
-        as? NewItineraryViewController
-    else {
-      fatalError()
-    }
-    newItineraryViewController.delegate = self
+  func newItineraryViewController(
+    _ viewController: NewItineraryViewController,
+    didCreateItinerary itinerary: Itinerary
+    ) {
+    itineraries.append(itinerary)
 
-    pageViewControllers.append(newItineraryViewController)
-
-    guard let firstViewController = pageViewControllers.first else {
-      fatalError()
-    }
+    let newViewController = createItineraryViewController(itinerary: itinerary)
+    pageViewControllers.insert(
+      newViewController,
+      at: pageViewControllers.count - 1
+    )
 
     setViewControllers(
-      [firstViewController], direction: .forward, animated: false
+      [newViewController], direction: .reverse, animated: true
     ) { _ in }
-  }
-
-  private func createItineraryViewController(itinerary: Itinerary)
-  -> ItineraryViewController {
-    guard
-      let viewController = UIStoryboard(name: "Main", bundle: nil)
-        .instantiateViewController(withIdentifier: "itinerary")
-        as? ItineraryViewController
-    else {
-      fatalError()
-    }
-
-    viewController.itinerary = itinerary
-    return viewController
   }
 }

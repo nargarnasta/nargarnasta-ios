@@ -13,16 +13,6 @@ class ItineraryInterfaceController: WKInterfaceController, WCSessionDelegate {
   var upcomingTrips: UpcomingTrips?
   var updateTimer: Timer?
 
-  override func awake(withContext context: Any?) {
-    super.awake(withContext: context)
-
-    if WCSession.isSupported() {
-      watchSession = WCSession.default()
-      watchSession?.delegate = self
-      watchSession?.activate()
-    }
-  }
-
   func updateInterface() {
     NSLog("Updating!")
 
@@ -64,6 +54,18 @@ class ItineraryInterfaceController: WKInterfaceController, WCSessionDelegate {
     return formatter
   }
 
+  // MARK: - WKInterfaceController
+
+  override func awake(withContext context: Any?) {
+    super.awake(withContext: context)
+
+    if WCSession.isSupported() {
+      watchSession = WCSession.default()
+      watchSession?.delegate = self
+      watchSession?.activate()
+    }
+  }
+
   override func willActivate() {
     super.willActivate()
 
@@ -87,6 +89,8 @@ class ItineraryInterfaceController: WKInterfaceController, WCSessionDelegate {
     super.didDeactivate()
   }
 
+  // MARK: - WCSessionDelegate
+  
   public func session(
     _ session: WCSession,
     activationDidCompleteWith activationState: WCSessionActivationState,

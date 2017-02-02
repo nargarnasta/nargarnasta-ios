@@ -29,12 +29,28 @@ class LocationSuggestionViewController: UITableViewController {
     return nil
   }
 
+  // MARK: - UIViewController
+
   override func awakeFromNib() {
     super.awakeFromNib()
 
     tableView.delegate = self
     tableView.dataSource = self
   }
+
+  // MARK: - UITableViewDelegate
+
+  override func tableView(
+    _ tableView: UITableView,
+    didSelectRowAt indexPath: IndexPath
+    ) {
+    delegate?.locationSuggestionViewController(
+      self,
+      didSelectLocation: suggestions[indexPath.row]
+    )
+  }
+
+  // MARK: - UITableViewDataSource
 
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -65,15 +81,5 @@ class LocationSuggestionViewController: UITableViewController {
     )
     cell.selectedBackgroundView = backgroundView
     return cell
-  }
-
-  override func tableView(
-    _ tableView: UITableView,
-    didSelectRowAt indexPath: IndexPath
-  ) {
-    delegate?.locationSuggestionViewController(
-      self,
-      didSelectLocation: suggestions[indexPath.row]
-    )
   }
 }

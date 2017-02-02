@@ -12,6 +12,43 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
   @IBOutlet weak var arrivalLocation: UILabel!
   @IBOutlet weak var minutesLabel: UILabel!
 
+  func updateLabels() {
+    if let trips = trips, let firstTrip = trips.first {
+      self.nextDepartureMinutesRemainingLabel.text =
+        minutesRemaining(to: firstTrip.departureTime)
+      self.minutesLabel.isHidden =
+        self.nextDepartureMinutesRemainingLabel.text == "Nu"
+      self.nextDepartureArrivalTime.text =
+        arrivalDescription(date: firstTrip.arrivalTime)
+    }
+
+    subsequentTripsTableView.reloadData()
+  }
+
+  private func minutesRemaining(to date: Date) -> String {
+    let minutesRemaining = date.timeIntervalSinceNow / 60
+    if minutesRemaining < 1 {
+      return "Nu"
+    } else {
+      return "\(Int(minutesRemaining))"
+    }
+  }
+
+  private func arrivalDescription(date: Date) -> String {
+    let arrivalTime =
+      ItineraryViewController.timeDateFormatter.string(from: date)
+    return "Du är framme \(arrivalTime)."
+  }
+
+  static var timeDateFormatter: DateFormatter {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .none
+    formatter.timeStyle = .short
+    return formatter
+  }
+
+  // MARK: - UIViewController
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -71,40 +108,7 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     timer = nil
   }
 
-  func updateLabels() {
-    if let trips = trips, let firstTrip = trips.first {
-      self.nextDepartureMinutesRemainingLabel.text =
-        minutesRemaining(to: firstTrip.departureTime)
-      self.minutesLabel.isHidden =
-        self.nextDepartureMinutesRemainingLabel.text == "Nu"
-      self.nextDepartureArrivalTime.text =
-        arrivalDescription(date: firstTrip.arrivalTime)
-    }
-
-    subsequentTripsTableView.reloadData()
-  }
-
-  private func minutesRemaining(to date: Date) -> String {
-    let minutesRemaining = date.timeIntervalSinceNow / 60
-    if minutesRemaining < 1 {
-      return "Nu"
-    } else {
-      return "\(Int(minutesRemaining))"
-    }
-  }
-
-  private func arrivalDescription(date: Date) -> String {
-    let arrivalTime =
-      ItineraryViewController.timeDateFormatter.string(from: date)
-    return "Du är framme \(arrivalTime)."
-  }
-
-  static var timeDateFormatter: DateFormatter {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .none
-    formatter.timeStyle = .short
-    return formatter
-  }
+  // MARK: - UITableViewDataSource
 
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
