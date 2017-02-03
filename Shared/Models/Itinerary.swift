@@ -1,4 +1,4 @@
-struct Itinerary {
+struct Itinerary: Equatable {
   let location1: Location
   let location2: Location
 
@@ -28,5 +28,9 @@ struct Itinerary {
       "location2ID": location2.id,
       "location2Name": location2.name
     ]
+  }
+
+  static func ==(lhs: Itinerary, rhs: Itinerary) -> Bool {
+    return lhs.location1 == rhs.location1 && lhs.location2 == rhs.location2
   }
 }

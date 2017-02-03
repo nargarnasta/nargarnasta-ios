@@ -1,22 +1,29 @@
 import WatchKit
 import Foundation
-import WatchConnectivity
 
-class ItineraryInterfaceController: WKInterfaceController, WCSessionDelegate {
+class ItineraryInterfaceController: WKInterfaceController {
   @IBOutlet var destinationLabel: WKInterfaceLabel!
   @IBOutlet var departureTimer: WKInterfaceTimer!
   @IBOutlet var departureTimerPlaceholderLabel: WKInterfaceLabel!
   @IBOutlet var arrivalTimeLabel: WKInterfaceLabel!
 
-  var watchSession: WCSession?
-  var itinerary: Itinerary?
+  var notificationCenter: NotificationCenter
+  weak var preferencesStoreObserver: NSObjectProtocol?
+  var preferencesStore: PreferencesStore
   var upcomingTrips: UpcomingTrips?
   var updateTimer: Timer?
+
+  override init() {
+    preferencesStore = ExtensionDelegate.shared.preferencesStore
+    notificationCenter = NotificationCenter.default
+
+    super.init()
+  }
 
   func updateInterface() {
     NSLog("Updating!")
 
-    guard let itinerary = itinerary else {
+    guard let itinerary = preferencesStore.itinerary else {
       updateEmptyStateVisibility(empty: true)
       destinationLabel.setText("-")
       return
@@ -54,31 +61,43 @@ class ItineraryInterfaceController: WKInterfaceController, WCSessionDelegate {
     return formatter
   }
 
-  // MARK: - WKInterfaceController
-
-  override func awake(withContext context: Any?) {
-    super.awake(withContext: context)
-
-    if WCSession.isSupported() {
-      watchSession = WCSession.default()
-      watchSession?.delegate = self
-      watchSession?.activate()
+  private func updateItinerary(_ itinerary: Itinerary?) {
+    if let itinerary = itinerary {
+      upcomingTrips = UpcomingTrips(itinerary: itinerary) {
+        DispatchQueue.main.async {
+          self.updateInterface()
+        }
+      }
+    } else {
+      self.upcomingTrips = nil
     }
   }
+
+  // MARK: - WKInterfaceController
 
   override func willActivate() {
     super.willActivate()
 
-    self.upcomingTrips?.removePassedTrips()
-    self.updateInterface()
+    if upcomingTrips?.itinerary != preferencesStore.itinerary {
+      updateItinerary(preferencesStore.itinerary)
+    }
+    upcomingTrips?.removePassedTrips()
+    updateInterface()
 
     updateTimer = Timer.scheduledTimer(
       withTimeInterval: 60, repeats: true
     ) { _ in
-      DispatchQueue.main.async {
-        self.upcomingTrips?.removePassedTrips()
-        self.updateInterface()
-      }
+      self.upcomingTrips?.removePassedTrips()
+      self.updateInterface()
+    }
+
+    preferencesStoreObserver = notificationCenter.addObserver(
+      forName: PreferencesStore.itineraryUpdatedNotificationName,
+      object: preferencesStore,
+      queue: OperationQueue.main
+    ) { _ in
+      self.updateItinerary(self.preferencesStore.itinerary)
+      self.updateInterface()
     }
   }
 
@@ -86,40 +105,11 @@ class ItineraryInterfaceController: WKInterfaceController, WCSessionDelegate {
     updateTimer?.invalidate()
     updateTimer = nil
 
+    if let preferencesStoreObserver = preferencesStoreObserver {
+      notificationCenter.removeObserver(preferencesStoreObserver)
+      self.preferencesStoreObserver = nil
+    }
+
     super.didDeactivate()
-  }
-
-  // MARK: - WCSessionDelegate
-
-  public func session(
-    _ session: WCSession,
-    activationDidCompleteWith activationState: WCSessionActivationState,
-    error: Error?
-  ) {
-    NSLog("Activation did complete, error (if any): \(error)")
-  }
-
-  func session(
-    _ session: WCSession,
-    didReceiveApplicationContext applicationContext: [String : Any]
-  ) {
-    NSLog("Application context: \(applicationContext)")
-
-    guard
-      let itineraryDictioinary = applicationContext["Itinerary"]
-        as? [String: Any],
-      let itinerary = Itinerary(dictionaryRepresentation: itineraryDictioinary)
-    else {
-      return
-    }
-
-    self.itinerary = itinerary
-    upcomingTrips = UpcomingTrips(itinerary: itinerary) {
-      DispatchQueue.main.async {
-        self.updateInterface()
-      }
-    }
-
-    updateInterface()
   }
 }

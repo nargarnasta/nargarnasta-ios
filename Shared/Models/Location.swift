@@ -4,7 +4,7 @@ enum LocationError: Error {
   case parametersMissing
 }
 
-struct Location {
+struct Location: Equatable {
   let id: String
   let name: String
 
@@ -23,5 +23,9 @@ struct Location {
 
     self.id = id
     self.name = name
+  }
+
+  static func ==(lhs: Location, rhs: Location) -> Bool {
+    return lhs.id == rhs.id
   }
 }

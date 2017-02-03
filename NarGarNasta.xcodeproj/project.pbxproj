@@ -35,6 +35,7 @@
 		405ECAA11E3F4581000A289A /* UpcomingTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405ECAA01E3F4581000A289A /* UpcomingTrips.swift */; };
 		405ECAA21E3F4581000A289A /* UpcomingTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405ECAA01E3F4581000A289A /* UpcomingTrips.swift */; };
 		4092E2C71E436B680008CF67 /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092E2C61E436B680008CF67 /* PreferencesStore.swift */; };
+		4092E2CA1E43D5A50008CF67 /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092E2C91E43D5A50008CF67 /* PreferencesStore.swift */; };
 		40BFCCD61E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
 		40BFCCD71E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		4092E2C21E42210A0008CF67 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4092E2C41E4227240008CF67 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4092E2C61E436B680008CF67 /* PreferencesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
+		4092E2C91E43D5A50008CF67 /* PreferencesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
 		40BFCCD01E4115D800E255D2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		40BFCCD31E41166600E255D2 /* Settings.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Settings.swift.example; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				405ECA9F1E3F3E33000A289A /* Interface Controllers */,
+				4092E2C81E43D57B0008CF67 /* Services */,
 				401B7F781E3DD4E100723D5C /* ExtensionDelegate.swift */,
 				401B7F7A1E3DD4E100723D5C /* Assets.xcassets */,
 				401B7F7C1E3DD4E100723D5C /* Info.plist */,
@@ -254,6 +257,14 @@
 			isa = PBXGroup;
 			children = (
 				4092E2C61E436B680008CF67 /* PreferencesStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4092E2C81E43D57B0008CF67 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4092E2C91E43D5A50008CF67 /* PreferencesStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -425,6 +436,7 @@
 				401B7F791E3DD4E100723D5C /* ExtensionDelegate.swift in Sources */,
 				401B7F881E3DDD9800723D5C /* Itinerary.swift in Sources */,
 				401B7F8B1E3DDDA500723D5C /* TripSearcher.swift in Sources */,
+				4092E2CA1E43D5A50008CF67 /* PreferencesStore.swift in Sources */,
 				401B7F891E3DDD9A00723D5C /* Location.swift in Sources */,
 				40BFCCD71E41167200E255D2 /* Settings.swift in Sources */,
 				401B7F771E3DD4E100723D5C /* ItineraryInterfaceController.swift in Sources */,
