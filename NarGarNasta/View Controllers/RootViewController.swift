@@ -11,19 +11,6 @@ NewItineraryViewControllerDelegate {
     super.init(coder: coder)
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    dataSource = self
-    populateViewControllers()
-
-    if let backgroundImage = UIImage(named: "Background") {
-      self.view.backgroundColor = UIColor(patternImage: backgroundImage)
-    } else {
-      NSLog("Could not find background image")
-    }
-  }
-
   func showNewItineraryViewController() {
     if
       pageViewControllers.contains(where: { $0 is NewItineraryViewController })
@@ -87,6 +74,19 @@ NewItineraryViewControllerDelegate {
   }
 
   // MARK: - UIViewController
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    dataSource = self
+    populateViewControllers()
+
+    if let backgroundImage = UIImage(named: "Background") {
+      self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+    } else {
+      NSLog("Could not find background image")
+    }
+  }
 
   // MARK: - UIPageViewControllerDataSource
 
