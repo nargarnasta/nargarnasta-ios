@@ -24,6 +24,21 @@ NewItineraryViewControllerDelegate {
     }
   }
 
+  func showNewItineraryViewController() {
+    if
+      pageViewControllers.contains(where: { $0 is NewItineraryViewController })
+    {
+      return
+    }
+
+    let newItineraryViewController = createNewItineraryViewController()
+    pageViewControllers.append(newItineraryViewController)
+
+    setViewControllers(
+      [newItineraryViewController], direction: .forward, animated: true
+    ) { _ in }
+  }
+
   private func populateViewControllers() {
     for itinerary in preferencesStore.itineraries {
       pageViewControllers.append(
@@ -31,16 +46,9 @@ NewItineraryViewControllerDelegate {
       )
     }
 
-    guard
-      let newItineraryViewController = UIStoryboard(name: "Main", bundle: nil)
-        .instantiateViewController(withIdentifier: "newItinerary")
-        as? NewItineraryViewController
-      else {
-        fatalError()
+    if pageViewControllers.isEmpty {
+      pageViewControllers.append(createNewItineraryViewController())
     }
-    newItineraryViewController.delegate = self
-
-    pageViewControllers.append(newItineraryViewController)
 
     guard let firstViewController = pageViewControllers.first else {
       fatalError()
@@ -51,25 +59,34 @@ NewItineraryViewControllerDelegate {
     ) { _ in }
   }
 
+  private func createNewItineraryViewController()
+    -> NewItineraryViewController {
+    guard
+      let newItineraryViewController = UIStoryboard(name: "Main", bundle: nil)
+        .instantiateViewController(withIdentifier: "newItinerary")
+        as? NewItineraryViewController
+      else {
+        fatalError()
+    }
+    newItineraryViewController.delegate = self
+    return newItineraryViewController
+  }
+
   private func createItineraryViewController(itinerary: Itinerary)
     -> ItineraryViewController {
-      guard
-        let viewController = UIStoryboard(name: "Main", bundle: nil)
-          .instantiateViewController(withIdentifier: "itinerary")
-          as? ItineraryViewController
-        else {
-          fatalError()
-      }
+    guard
+      let viewController = UIStoryboard(name: "Main", bundle: nil)
+        .instantiateViewController(withIdentifier: "itinerary")
+        as? ItineraryViewController
+      else {
+        fatalError()
+    }
 
-      viewController.itinerary = itinerary
-      return viewController
+    viewController.itinerary = itinerary
+    return viewController
   }
 
   // MARK: - UIViewController
-
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
-  }
 
   // MARK: - UIPageViewControllerDataSource
 
@@ -124,10 +141,14 @@ NewItineraryViewControllerDelegate {
     ) {
     preferencesStore.itineraries.append(itinerary)
 
+    if let index = pageViewControllers.index(of: viewController) {
+      pageViewControllers.remove(at: index)
+    }
+
     let newViewController = createItineraryViewController(itinerary: itinerary)
     pageViewControllers.insert(
       newViewController,
-      at: pageViewControllers.count - 1
+      at: pageViewControllers.count
     )
 
     setViewControllers(

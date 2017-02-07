@@ -38,6 +38,7 @@
 		4092E2CA1E43D5A50008CF67 /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092E2C91E43D5A50008CF67 /* PreferencesStore.swift */; };
 		40BFCCD61E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
 		40BFCCD71E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
+		40D7F5BF1E4A648300C4478A /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7F5BE1E4A648300C4478A /* OverlayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		4092E2C91E43D5A50008CF67 /* PreferencesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
 		40BFCCD01E4115D800E255D2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		40BFCCD31E41166600E255D2 /* Settings.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Settings.swift.example; sourceTree = "<group>"; };
+		40D7F5BE1E4A648300C4478A /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 		405E21A61E3CDFE5004598C4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				40D7F5BE1E4A648300C4478A /* OverlayViewController.swift */,
 				405E21961E3CDFAF004598C4 /* RootViewController.swift */,
 				403DCABD1E3CEE58002F18C7 /* ItineraryViewController.swift */,
 				403DCABF1E3CEE74002F18C7 /* NewItineraryViewController.swift */,
@@ -456,6 +459,7 @@
 				403DCAC21E3CF124002F18C7 /* LocationSearcher.swift in Sources */,
 				403DCABA1E3CE71A002F18C7 /* Itinerary.swift in Sources */,
 				403DCABE1E3CEE58002F18C7 /* ItineraryViewController.swift in Sources */,
+				40D7F5BF1E4A648300C4478A /* OverlayViewController.swift in Sources */,
 				405E21951E3CDFAF004598C4 /* AppDelegate.swift in Sources */,
 				403DCAC01E3CEE74002F18C7 /* NewItineraryViewController.swift in Sources */,
 				403DCAC41E3CF37A002F18C7 /* Location.swift in Sources */,
