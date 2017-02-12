@@ -39,6 +39,7 @@
 		40BFCCD61E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
 		40BFCCD71E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
 		40D7F5BF1E4A648300C4478A /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7F5BE1E4A648300C4478A /* OverlayViewController.swift */; };
+		40FB9E571E4E4DEE0074BFD8 /* ItineraryCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FB9E561E4E4DEE0074BFD8 /* ItineraryCardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		40BFCCD01E4115D800E255D2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		40BFCCD31E41166600E255D2 /* Settings.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Settings.swift.example; sourceTree = "<group>"; };
 		40D7F5BE1E4A648300C4478A /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
+		40FB9E561E4E4DEE0074BFD8 /* ItineraryCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			children = (
 				40D7F5BE1E4A648300C4478A /* OverlayViewController.swift */,
 				405E21961E3CDFAF004598C4 /* RootViewController.swift */,
+				40FB9E561E4E4DEE0074BFD8 /* ItineraryCardViewController.swift */,
 				403DCABD1E3CEE58002F18C7 /* ItineraryViewController.swift */,
 				403DCABF1E3CEE74002F18C7 /* NewItineraryViewController.swift */,
 				400BC15B1E3D0A5300EE1042 /* LocationSuggestionViewController.swift */,
@@ -453,6 +456,7 @@
 				401B7F5F1E3D4B6900723D5C /* Trip.swift in Sources */,
 				405E21971E3CDFAF004598C4 /* RootViewController.swift in Sources */,
 				40BFCCD61E41167200E255D2 /* Settings.swift in Sources */,
+				40FB9E571E4E4DEE0074BFD8 /* ItineraryCardViewController.swift in Sources */,
 				405ECAA11E3F4581000A289A /* UpcomingTrips.swift in Sources */,
 				401B7F5D1E3D4A8200723D5C /* TripSearcher.swift in Sources */,
 				400BC15C1E3D0A5300EE1042 /* LocationSuggestionViewController.swift in Sources */,

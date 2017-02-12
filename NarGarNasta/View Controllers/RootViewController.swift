@@ -1,9 +1,9 @@
 import UIKit
 
 class RootViewController: UIPageViewController, UIPageViewControllerDataSource,
-NewItineraryViewControllerDelegate {
+ItineraryCardViewControllerDelegate {
   let preferencesStore: PreferencesStore
-  var pageViewControllers: [UIViewController] = []
+  var pageViewControllers: [ItineraryCardViewController] = []
 
   required init?(coder: NSCoder) {
     preferencesStore = AppDelegate.shared.preferencesStore
@@ -13,28 +13,30 @@ NewItineraryViewControllerDelegate {
 
   func showNewItineraryViewController() {
     if
-      pageViewControllers.contains(where: { $0 is NewItineraryViewController })
+      pageViewControllers.contains(where: { $0.itinerary == nil })
     {
       return
     }
 
-    let newItineraryViewController = createNewItineraryViewController()
-    pageViewControllers.append(newItineraryViewController)
+    let viewController = createItineraryCardViewController(itinerary: nil)
+    pageViewControllers.append(viewController)
 
     setViewControllers(
-      [newItineraryViewController], direction: .forward, animated: true
+      [viewController], direction: .forward, animated: true
     ) { _ in }
   }
 
   private func populateViewControllers() {
     for itinerary in preferencesStore.itineraries {
       pageViewControllers.append(
-        createItineraryViewController(itinerary: itinerary)
+        createItineraryCardViewController(itinerary: itinerary)
       )
     }
 
     if pageViewControllers.isEmpty {
-      pageViewControllers.append(createNewItineraryViewController())
+      pageViewControllers.append(
+        createItineraryCardViewController(itinerary: nil)
+      )
     }
 
     guard let firstViewController = pageViewControllers.first else {
@@ -46,30 +48,18 @@ NewItineraryViewControllerDelegate {
     ) { _ in }
   }
 
-  private func createNewItineraryViewController()
-    -> NewItineraryViewController {
-    guard
-      let newItineraryViewController = UIStoryboard(name: "Main", bundle: nil)
-        .instantiateViewController(withIdentifier: "newItinerary")
-        as? NewItineraryViewController
-      else {
-        fatalError()
-    }
-    newItineraryViewController.delegate = self
-    return newItineraryViewController
-  }
-
-  private func createItineraryViewController(itinerary: Itinerary)
-    -> ItineraryViewController {
+  private func createItineraryCardViewController(itinerary: Itinerary?)
+    -> ItineraryCardViewController {
     guard
       let viewController = UIStoryboard(name: "Main", bundle: nil)
-        .instantiateViewController(withIdentifier: "itinerary")
-        as? ItineraryViewController
-      else {
-        fatalError()
+        .instantiateViewController(withIdentifier: "itineraryCard")
+        as? ItineraryCardViewController
+    else {
+      fatalError()
     }
 
     viewController.itinerary = itinerary
+    viewController.delegate = self
     return viewController
   }
 
@@ -94,7 +84,10 @@ NewItineraryViewControllerDelegate {
     _ pageViewController: UIPageViewController,
     viewControllerBefore viewController: UIViewController
   ) -> UIViewController? {
-    guard let activeIndex = pageViewControllers.index(of: viewController) else {
+    guard
+      let viewController = viewController as? ItineraryCardViewController,
+      let activeIndex = pageViewControllers.index(of: viewController)
+    else {
       return nil
     }
 
@@ -108,7 +101,10 @@ NewItineraryViewControllerDelegate {
     _ pageViewController: UIPageViewController,
     viewControllerAfter viewController: UIViewController
   ) -> UIViewController? {
-    guard let activeIndex = pageViewControllers.index(of: viewController) else {
+    guard
+      let viewController = viewController as? ItineraryCardViewController,
+      let activeIndex = pageViewControllers.index(of: viewController)
+    else {
       return nil
     }
 
@@ -124,7 +120,8 @@ NewItineraryViewControllerDelegate {
 
   func presentationIndex(for pageViewController: UIPageViewController) -> Int {
     guard
-      let activeViewController = pageViewController.viewControllers?.first,
+      let activeViewController = pageViewController.viewControllers?.first
+        as? ItineraryCardViewController,
       let activeIndex = pageViewControllers.index(of: activeViewController)
     else {
       return 0
@@ -133,26 +130,12 @@ NewItineraryViewControllerDelegate {
     return activeIndex
   }
 
-  // MARK: - NewItineraryViewControllerDelegate
+  // MARK: - ItineraryCardViewControllerDelegate
 
-  func newItineraryViewController(
-    _ viewController: NewItineraryViewController,
+  func itineraryCardViewController(
+    _ viewController: ItineraryCardViewController,
     didCreateItinerary itinerary: Itinerary
-    ) {
+  ) {
     preferencesStore.itineraries.append(itinerary)
-
-    if let index = pageViewControllers.index(of: viewController) {
-      pageViewControllers.remove(at: index)
-    }
-
-    let newViewController = createItineraryViewController(itinerary: itinerary)
-    pageViewControllers.insert(
-      newViewController,
-      at: pageViewControllers.count
-    )
-
-    setViewControllers(
-      [newViewController], direction: .reverse, animated: true
-    ) { _ in }
   }
 }
