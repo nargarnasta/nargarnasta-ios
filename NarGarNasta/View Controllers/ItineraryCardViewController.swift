@@ -41,34 +41,34 @@ NewItineraryViewControllerDelegate {
 
   private func createNewItineraryViewController()
     -> NewItineraryViewController {
-      guard
-        let newItineraryViewController = UIStoryboard(name: "Main", bundle: nil)
-          .instantiateViewController(withIdentifier: "newItinerary")
-          as? NewItineraryViewController
-      else {
-        fatalError()
-      }
-      newItineraryViewController.delegate = self
-      return newItineraryViewController
+    guard
+      let newItineraryViewController = UIStoryboard(name: "Main", bundle: nil)
+        .instantiateViewController(withIdentifier: "newItinerary")
+        as? NewItineraryViewController
+    else {
+      fatalError()
+    }
+    newItineraryViewController.delegate = self
+    return newItineraryViewController
   }
 
   private func createItineraryViewController(itinerary: Itinerary)
     -> ItineraryViewController {
-      guard
-        let viewController = UIStoryboard(name: "Main", bundle: nil)
-          .instantiateViewController(withIdentifier: "itinerary")
-          as? ItineraryViewController
-      else {
-        fatalError()
-      }
+    guard
+      let viewController = UIStoryboard(name: "Main", bundle: nil)
+        .instantiateViewController(withIdentifier: "itinerary")
+        as? ItineraryViewController
+    else {
+      fatalError()
+    }
 
-      viewController.itinerary = itinerary
-      return viewController
+    viewController.itinerary = itinerary
+    return viewController
   }
 
   // MARK: - UIViewController
 
-  override func awakeFromNib() {
+  override func viewDidLoad() {
     let viewController: UIViewController
     if let itinerary = itinerary {
       viewController = createItineraryViewController(itinerary: itinerary)
@@ -80,7 +80,7 @@ NewItineraryViewControllerDelegate {
     view.addSubview(viewController.view)
     viewController.didMove(toParentViewController: self)
 
-    super.awakeFromNib()
+    super.viewDidLoad()
   }
 
   // MARK: - NewItineraryViewControllerDelegate

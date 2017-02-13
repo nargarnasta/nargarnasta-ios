@@ -1,7 +1,7 @@
 import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
-  let preferencesStore = PreferencesStore()
+  let preferencesStore = WatchOSPreferencesStore()
 
   static var shared: ExtensionDelegate {
     guard

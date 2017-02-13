@@ -2,7 +2,7 @@ import UIKit
 
 class RootViewController: UIPageViewController, UIPageViewControllerDataSource,
 ItineraryCardViewControllerDelegate {
-  let preferencesStore: PreferencesStore
+  let preferencesStore: IOSPreferencesStore
   var pageViewControllers: [ItineraryCardViewController] = []
 
   required init?(coder: NSCoder) {
@@ -136,6 +136,9 @@ ItineraryCardViewControllerDelegate {
     _ viewController: ItineraryCardViewController,
     didCreateItinerary itinerary: Itinerary
   ) {
-    preferencesStore.itineraries.append(itinerary)
+    var itineraries = preferencesStore.itineraries
+    itineraries.append(itinerary)
+
+    preferencesStore.updateItineraries(itineraries: itineraries)
   }
 }

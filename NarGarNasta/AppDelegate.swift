@@ -3,7 +3,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
-  let preferencesStore = PreferencesStore()
+  let preferencesStore = IOSPreferencesStore()
 
   static var shared: AppDelegate {
     guard let delegate = UIApplication.shared.delegate as? AppDelegate else {

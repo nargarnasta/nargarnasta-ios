@@ -9,7 +9,7 @@ class ItineraryInterfaceController: WKInterfaceController {
 
   var notificationCenter: NotificationCenter
   weak var preferencesStoreObserver: NSObjectProtocol?
-  var preferencesStore: PreferencesStore
+  var preferencesStore: WatchOSPreferencesStore
   var upcomingTrips: UpcomingTrips?
   var updateTimer: Timer?
 
@@ -23,7 +23,7 @@ class ItineraryInterfaceController: WKInterfaceController {
   func updateInterface() {
     NSLog("Updating!")
 
-    guard let itinerary = preferencesStore.itinerary else {
+    guard let itinerary = preferencesStore.itineraries.first else {
       updateEmptyStateVisibility(empty: true)
       destinationLabel.setText("-")
       return
@@ -78,8 +78,8 @@ class ItineraryInterfaceController: WKInterfaceController {
   override func willActivate() {
     super.willActivate()
 
-    if upcomingTrips?.itinerary != preferencesStore.itinerary {
-      updateItinerary(preferencesStore.itinerary)
+    if upcomingTrips?.itinerary != preferencesStore.itineraries.first {
+      updateItinerary(preferencesStore.itineraries.first)
     }
     upcomingTrips?.removePassedTrips()
     updateInterface()
@@ -92,11 +92,11 @@ class ItineraryInterfaceController: WKInterfaceController {
     }
 
     preferencesStoreObserver = notificationCenter.addObserver(
-      forName: PreferencesStore.itineraryUpdatedNotificationName,
+      forName: WatchOSPreferencesStore.itineraryUpdatedNotificationName,
       object: preferencesStore,
       queue: OperationQueue.main
     ) { _ in
-      self.updateItinerary(self.preferencesStore.itinerary)
+      self.updateItinerary(self.preferencesStore.itineraries.first)
       self.updateInterface()
     }
   }
