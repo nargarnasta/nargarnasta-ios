@@ -4,7 +4,7 @@ enum TripError: Error {
   case parametersMissing, dateFormatInvalid
 }
 
-struct Trip {
+struct Trip: Equatable {
   let departureTime: Date
   let arrivalTime: Date
 
@@ -13,7 +13,7 @@ struct Trip {
       let departureTimeString = jsonObject["departure_time"] as? String,
       let arrivalTimeString = jsonObject["arrival_time"] as? String
     else {
-        throw LocationError.parametersMissing
+      throw TripError.parametersMissing
     }
 
     self.departureTime = try Trip.dateFromISO8601String(departureTimeString)
@@ -28,5 +28,12 @@ struct Trip {
     } else {
       throw TripError.dateFormatInvalid
     }
+  }
+
+  static func ==(lhs: Trip, rhs: Trip) -> Bool {
+    return (
+      lhs.departureTime == rhs.departureTime &&
+        lhs.arrivalTime == rhs.arrivalTime
+    )
   }
 }

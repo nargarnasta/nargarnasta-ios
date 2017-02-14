@@ -2,11 +2,27 @@ import Foundation
 
 class UpcomingTrips {
   let itinerary: Itinerary
-  let tripSearcher = TripSearcher()
+  let tripSearcher: TripSearcherProtocol
   var trips: [Trip]?
 
-  init(itinerary: Itinerary, searchCompleted: @escaping () -> Void) {
+  convenience init(
+    itinerary: Itinerary,
+    searchCompleted: @escaping () -> Void
+  ) {
+    self.init(
+      itinerary: itinerary,
+      tripSearcher: TripSearcher(),
+      searchCompleted: searchCompleted
+    )
+  }
+
+  init(
+    itinerary: Itinerary,
+    tripSearcher: TripSearcherProtocol,
+    searchCompleted: @escaping () -> Void
+  ) {
     self.itinerary = itinerary
+    self.tripSearcher = tripSearcher
 
     populateFromSearch(completed: searchCompleted)
   }

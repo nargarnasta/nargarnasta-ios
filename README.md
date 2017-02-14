@@ -4,13 +4,16 @@
 
 - Xcode 8
 - SwiftLint
+- Carthage
 
 ## Getting started
 
-1. Install SwiftLint (`brew install swiftlint` if you're using Homebrew)
-2. Clone the repo and make sure you've got Xcode 8 or later ready
-3. Create `Shared/Settings.swift` from `Shared/Settings.swift.example`
-4. Good to go
+1. Clone the repo and make sure you've got Xcode 8 or later ready
+2. Install SwiftLint and Carthage (`brew install swiftlint carthage` if you're
+   using Homebrew)
+3. Bootstrap dependencies: `carthage bootstrap`
+4. Create `Shared/Settings.swift` from `Shared/Settings.swift.example`
+5. Good to go
 
 ## Contributing
 

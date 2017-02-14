@@ -1,6 +1,14 @@
 import Foundation
 
-class TripSearcher {
+protocol TripSearcherProtocol: class {
+  func search(
+    origin: Location,
+    destination: Location,
+    completion: @escaping ([Trip]) -> Void
+  )
+}
+
+class TripSearcher: TripSearcherProtocol {
   func search(
     origin: Location,
     destination: Location,
