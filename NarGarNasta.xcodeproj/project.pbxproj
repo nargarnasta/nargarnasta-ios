@@ -22,6 +22,10 @@
 		401B7F8A1E3DDD9F00723D5C /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5E1E3D4B6900723D5C /* Trip.swift */; };
 		401B7F8B1E3DDDA500723D5C /* TripSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */; };
 		402176721E53814900C2D244 /* TripSearcherDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402176711E53814900C2D244 /* TripSearcherDouble.swift */; };
+		403B8AE11E54AFF5002C10D2 /* TripSearcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B8AE01E54AFF5002C10D2 /* TripSearcherSpec.swift */; };
+		403B8AE41E54B064002C10D2 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B8AE31E54B064002C10D2 /* URLSessionProtocol.swift */; };
+		403B8AE51E54B064002C10D2 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B8AE31E54B064002C10D2 /* URLSessionProtocol.swift */; };
+		403B8AE71E54E599002C10D2 /* URLSessionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B8AE61E54E599002C10D2 /* URLSessionDouble.swift */; };
 		403DCAB41E3CE613002F18C7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 403DCAB31E3CE613002F18C7 /* .gitignore */; };
 		403DCABA1E3CE71A002F18C7 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCAB91E3CE71A002F18C7 /* Itinerary.swift */; };
 		403DCABE1E3CEE58002F18C7 /* ItineraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCABD1E3CEE58002F18C7 /* ItineraryViewController.swift */; };
@@ -113,6 +117,9 @@
 		401B7F7A1E3DD4E100723D5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		401B7F7C1E3DD4E100723D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		402176711E53814900C2D244 /* TripSearcherDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSearcherDouble.swift; sourceTree = "<group>"; };
+		403B8AE01E54AFF5002C10D2 /* TripSearcherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSearcherSpec.swift; sourceTree = "<group>"; };
+		403B8AE31E54B064002C10D2 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		403B8AE61E54E599002C10D2 /* URLSessionDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDouble.swift; sourceTree = "<group>"; };
 		403DCAB31E3CE613002F18C7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		403DCAB91E3CE71A002F18C7 /* Itinerary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
 		403DCABD1E3CEE58002F18C7 /* ItineraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryViewController.swift; sourceTree = "<group>"; };
@@ -201,8 +208,25 @@
 			isa = PBXGroup;
 			children = (
 				402176711E53814900C2D244 /* TripSearcherDouble.swift */,
+				403B8AE61E54E599002C10D2 /* URLSessionDouble.swift */,
 			);
 			path = Doubles;
+			sourceTree = "<group>";
+		};
+		403B8ADF1E54AFA0002C10D2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				403B8AE01E54AFF5002C10D2 /* TripSearcherSpec.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		403B8AE21E54B02C002C10D2 /* Testability Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				403B8AE31E54B064002C10D2 /* URLSessionProtocol.swift */,
+			);
+			path = "Testability Protocols";
 			sourceTree = "<group>";
 		};
 		403DCAB21E3CE033002F18C7 /* Interface */ = {
@@ -264,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				405D77851E524AC100792118 /* Models */,
+				403B8ADF1E54AFA0002C10D2 /* Services */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -338,6 +363,7 @@
 			children = (
 				403DCAB81E3CE6EA002F18C7 /* Models */,
 				403DCAB51E3CE660002F18C7 /* Services */,
+				403B8AE21E54B02C002C10D2 /* Testability Protocols */,
 				40BFCCD01E4115D800E255D2 /* Settings.swift */,
 				40BFCCD31E41166600E255D2 /* Settings.swift.example */,
 			);
@@ -594,6 +620,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403B8AE51E54B064002C10D2 /* URLSessionProtocol.swift in Sources */,
 				40F163A61E51FF1F00211FDF /* WatchOSPreferencesStore.swift in Sources */,
 				401B7F8A1E3DDD9F00723D5C /* Trip.swift in Sources */,
 				405ECAA21E3F4581000A289A /* UpcomingTrips.swift in Sources */,
@@ -622,6 +649,7 @@
 				403DCABA1E3CE71A002F18C7 /* Itinerary.swift in Sources */,
 				403DCABE1E3CEE58002F18C7 /* ItineraryViewController.swift in Sources */,
 				40D7F5BF1E4A648300C4478A /* OverlayViewController.swift in Sources */,
+				403B8AE41E54B064002C10D2 /* URLSessionProtocol.swift in Sources */,
 				405E21951E3CDFAF004598C4 /* AppDelegate.swift in Sources */,
 				403DCAC01E3CEE74002F18C7 /* NewItineraryViewController.swift in Sources */,
 				403DCAC41E3CF37A002F18C7 /* Location.swift in Sources */,
@@ -632,8 +660,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403B8AE11E54AFF5002C10D2 /* TripSearcherSpec.swift in Sources */,
 				405D77871E524AD700792118 /* ItinerarySpec.swift in Sources */,
 				405D778D1E52D4BF00792118 /* UpcomingTripsSpec.swift in Sources */,
+				403B8AE71E54E599002C10D2 /* URLSessionDouble.swift in Sources */,
 				405D77891E524F2200792118 /* LocationSpec.swift in Sources */,
 				402176721E53814900C2D244 /* TripSearcherDouble.swift in Sources */,
 				405D777D1E523E0F00792118 /* IOSPreferencesStoreSpec.swift in Sources */,

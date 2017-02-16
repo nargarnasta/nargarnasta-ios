@@ -9,6 +9,12 @@ protocol TripSearcherProtocol: class {
 }
 
 class TripSearcher: TripSearcherProtocol {
+  let urlSession: URLSessionProtocol
+
+  init(urlSession: URLSessionProtocol = URLSession.shared) {
+    self.urlSession = urlSession
+  }
+
   func search(
     origin: Location,
     destination: Location,
@@ -18,7 +24,7 @@ class TripSearcher: TripSearcherProtocol {
 
     NSLog("Fetching trips (\(url))")
 
-    let dataTask = URLSession.shared.dataTask(
+    let dataTask = urlSession.dataTask(
       with: url
     ) { data, response, error in
       guard let data = data, error == nil else {

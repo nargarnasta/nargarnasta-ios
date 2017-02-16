@@ -1,8 +1,14 @@
 import Foundation
 
 class LocationSearcher {
+  let urlSession: URLSessionProtocol
+
+  init(urlSession: URLSessionProtocol = URLSession.shared) {
+    self.urlSession = urlSession
+  }
+
   func search(query: String, completion: @escaping ([Location]) -> Void) {
-    let dataTask = URLSession.shared.dataTask(
+    let dataTask = urlSession.dataTask(
       with: endpointURL(query: query)
     ) { data, response, error in
       guard let data = data, error == nil else {
