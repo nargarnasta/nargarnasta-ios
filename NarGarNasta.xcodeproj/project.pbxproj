@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4001A5521E56053400A69B6B /* LocationSearcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4001A5511E56053400A69B6B /* LocationSearcherSpec.swift */; };
 		400BC15C1E3D0A5300EE1042 /* LocationSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC15B1E3D0A5300EE1042 /* LocationSuggestionViewController.swift */; };
 		401B7F5D1E3D4A8200723D5C /* TripSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */; };
 		401B7F5F1E3D4B6900723D5C /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5E1E3D4B6900723D5C /* Trip.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4001A5511E56053400A69B6B /* LocationSearcherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearcherSpec.swift; sourceTree = "<group>"; };
 		400BC15B1E3D0A5300EE1042 /* LocationSuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSuggestionViewController.swift; sourceTree = "<group>"; };
 		401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSearcher.swift; sourceTree = "<group>"; };
 		401B7F5E1E3D4B6900723D5C /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		403B8ADF1E54AFA0002C10D2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4001A5511E56053400A69B6B /* LocationSearcherSpec.swift */,
 				403B8AE01E54AFF5002C10D2 /* TripSearcherSpec.swift */,
 			);
 			path = Services;
@@ -667,6 +670,7 @@
 				405D77891E524F2200792118 /* LocationSpec.swift in Sources */,
 				402176721E53814900C2D244 /* TripSearcherDouble.swift in Sources */,
 				405D777D1E523E0F00792118 /* IOSPreferencesStoreSpec.swift in Sources */,
+				4001A5521E56053400A69B6B /* LocationSearcherSpec.swift in Sources */,
 				405D778B1E52536C00792118 /* TripSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
