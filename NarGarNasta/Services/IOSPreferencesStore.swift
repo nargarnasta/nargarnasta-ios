@@ -3,18 +3,26 @@ import WatchConnectivity
 
 class IOSPreferencesStore: NSObject, WCSessionDelegate {
   static let itinerariesStoreKey = "itineraries"
-  static let itineraryUpdatedNotificationName =
+  static let itineraryUpdatedNotification =
     Notification.Name("PreferencesStoreItineraryUpdatedNotification")
 
-  private var watchSession: WCSession?
+  private let watchSession: WCSessionIOSProtocol
   private let notificationCenter: NotificationCenter
-  private let keyValueStore: NSUbiquitousKeyValueStore
+  private let keyValueStore: NSUbiquitousKeyValueStoreProtocol
 
   private(set) var itineraries: [Itinerary]
 
-  override init() {
-    notificationCenter = NotificationCenter.default
-    keyValueStore = NSUbiquitousKeyValueStore.default()
+  init(
+    notificationCenter: NotificationCenter = NotificationCenter.default,
+    keyValueStore: NSUbiquitousKeyValueStoreProtocol =
+      NSUbiquitousKeyValueStore.default(),
+    watchSession: WCSessionIOSProtocol = WCSession.default()
+  ) {
+    self.notificationCenter = notificationCenter
+    self.keyValueStore = keyValueStore
+    self.watchSession = watchSession
+
+    let _ = self.keyValueStore.synchronize()
 
     self.itineraries = IOSPreferencesStore.itinerariesFromStore(
       keyValueStore: keyValueStore
@@ -29,37 +37,30 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
       object: keyValueStore
     )
 
-    if WCSession.isSupported() {
-      let watchSession = WCSession.default()
+    if watchSession.isSupported {
       watchSession.delegate = self
       watchSession.activate()
-      self.watchSession = watchSession
     }
   }
 
   func updateItineraries(itineraries: [Itinerary]) {
     self.itineraries = itineraries
 
-    synchronize()
-  }
-
-  func synchronize() {
     keyValueStore.set(
       itineraries.map { $0.dictionaryRepresentation() },
       forKey: IOSPreferencesStore.itinerariesStoreKey
     )
-    keyValueStore.synchronize()
 
-    synchronizeWatch()
+    sendItinerariesToWatch()
   }
 
-  func synchronizeWatch() {
-    guard watchSession?.isWatchAppInstalled ?? false else {
+  private func sendItinerariesToWatch() {
+    guard watchSession.isSupported && watchSession.isWatchAppInstalled else {
       return
     }
 
     do {
-      try watchSession?.updateApplicationContext(
+      try watchSession.updateApplicationContext(
         [
           IOSPreferencesStore.itinerariesStoreKey:
             itineraries.map { $0.dictionaryRepresentation() }
@@ -71,11 +72,13 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
   }
 
   private static func itinerariesFromStore(
-    keyValueStore: NSUbiquitousKeyValueStore
-    ) -> [Itinerary] {
-    if let itineraryDictionaries = keyValueStore.array(
-      forKey: IOSPreferencesStore.itinerariesStoreKey
-      ) as? [[String: Any]] {
+    keyValueStore: NSUbiquitousKeyValueStoreProtocol
+  ) -> [Itinerary] {
+    if
+      let itineraryDictionaries = keyValueStore.array(
+        forKey: IOSPreferencesStore.itinerariesStoreKey
+      ) as? [[String: Any]]
+    {
       return itineraryDictionaries.flatMap { dictionary in
         return Itinerary(dictionaryRepresentation: dictionary)
       }
@@ -87,12 +90,14 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
   // MARK: - Notification observers
 
   func keyValueStoreDidUpdate(notification: NSNotification) {
-    itineraries = IOSPreferencesStore.itinerariesFromStore(
-      keyValueStore: keyValueStore
+    updateItineraries(
+      itineraries: IOSPreferencesStore.itinerariesFromStore(
+        keyValueStore: keyValueStore
+      )
     )
 
     notificationCenter.post(
-      name: IOSPreferencesStore.itineraryUpdatedNotificationName,
+      name: IOSPreferencesStore.itineraryUpdatedNotification,
       object: self
     )
   }
@@ -103,10 +108,11 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
     _ session: WCSession,
     activationDidCompleteWith activationState: WCSessionActivationState,
     error: Error?
-  ) {
-    synchronizeWatch()
-  }
+  ) {}
+  func sessionDidBecomeInactive(_ session: WCSession) {}
+  func sessionDidDeactivate(_ session: WCSession) {}
 
-  func sessionDidBecomeInactive(_ session: WCSession) { }
-  func sessionDidDeactivate(_ session: WCSession) { }
+  func sessionWatchStateDidChange(_ session: WCSession) {
+    sendItinerariesToWatch()
+  }
 }

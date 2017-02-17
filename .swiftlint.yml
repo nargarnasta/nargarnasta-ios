@@ -11,6 +11,7 @@ opt_in_rules:
   - overridden_super_call
 disabled_rules:
   - opening_brace # Not for multi-line statements
+  - function_body_length # Doesn't work for specs
 line_length:
   warning: 80
 variable_name:

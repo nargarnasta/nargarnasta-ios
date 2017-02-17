@@ -49,6 +49,10 @@
 		405ECAA21E3F4581000A289A /* UpcomingTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405ECAA01E3F4581000A289A /* UpcomingTrips.swift */; };
 		40BFCCD61E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
 		40BFCCD71E41167200E255D2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFCCD01E4115D800E255D2 /* Settings.swift */; };
+		40CE23F11E5629AC00962CD5 /* NSUbiquitousKeyValueStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CE23F01E5629AC00962CD5 /* NSUbiquitousKeyValueStoreProtocol.swift */; };
+		40CE23F31E56303B00962CD5 /* WCSessionPhoneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CE23F21E56303B00962CD5 /* WCSessionPhoneProtocol.swift */; };
+		40CE23F61E563BF700962CD5 /* NSUbiquitousKeyValueStoreDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CE23F51E563BF700962CD5 /* NSUbiquitousKeyValueStoreDouble.swift */; };
+		40CE23F81E56F5FB00962CD5 /* IOSWCSessionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CE23F71E56F5FB00962CD5 /* IOSWCSessionDouble.swift */; };
 		40D7F5BF1E4A648300C4478A /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7F5BE1E4A648300C4478A /* OverlayViewController.swift */; };
 		40F163A41E51FEB600211FDF /* IOSPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092E2C61E436B680008CF67 /* IOSPreferencesStore.swift */; };
 		40F163A61E51FF1F00211FDF /* WatchOSPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F163A51E51FF1F00211FDF /* WatchOSPreferencesStore.swift */; };
@@ -151,6 +155,10 @@
 		4092E2C61E436B680008CF67 /* IOSPreferencesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOSPreferencesStore.swift; sourceTree = "<group>"; };
 		40BFCCD01E4115D800E255D2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		40BFCCD31E41166600E255D2 /* Settings.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Settings.swift.example; sourceTree = "<group>"; };
+		40CE23F01E5629AC00962CD5 /* NSUbiquitousKeyValueStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUbiquitousKeyValueStoreProtocol.swift; sourceTree = "<group>"; };
+		40CE23F21E56303B00962CD5 /* WCSessionPhoneProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCSessionPhoneProtocol.swift; sourceTree = "<group>"; };
+		40CE23F51E563BF700962CD5 /* NSUbiquitousKeyValueStoreDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUbiquitousKeyValueStoreDouble.swift; sourceTree = "<group>"; };
+		40CE23F71E56F5FB00962CD5 /* IOSWCSessionDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOSWCSessionDouble.swift; sourceTree = "<group>"; };
 		40D7F5BE1E4A648300C4478A /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		40F1639F1E50FA5300211FDF /* NarGarNasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarGarNasta.entitlements; sourceTree = "<group>"; };
 		40F163A51E51FF1F00211FDF /* WatchOSPreferencesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchOSPreferencesStore.swift; sourceTree = "<group>"; };
@@ -211,6 +219,8 @@
 			children = (
 				402176711E53814900C2D244 /* TripSearcherDouble.swift */,
 				403B8AE61E54E599002C10D2 /* URLSessionDouble.swift */,
+				40CE23F51E563BF700962CD5 /* NSUbiquitousKeyValueStoreDouble.swift */,
+				40CE23F71E56F5FB00962CD5 /* IOSWCSessionDouble.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -341,6 +351,7 @@
 				403DCAB21E3CE033002F18C7 /* Interface */,
 				405E21A61E3CDFE5004598C4 /* View Controllers */,
 				4092E2C51E43687D0008CF67 /* Services */,
+				40CE23EF1E56296900962CD5 /* Testability Protocols */,
 				405E21941E3CDFAF004598C4 /* AppDelegate.swift */,
 				40F1639F1E50FA5300211FDF /* NarGarNasta.entitlements */,
 				405E21A01E3CDFAF004598C4 /* Info.plist */,
@@ -406,6 +417,15 @@
 				40F163A51E51FF1F00211FDF /* WatchOSPreferencesStore.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		40CE23EF1E56296900962CD5 /* Testability Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				40CE23F01E5629AC00962CD5 /* NSUbiquitousKeyValueStoreProtocol.swift */,
+				40CE23F21E56303B00962CD5 /* WCSessionPhoneProtocol.swift */,
+			);
+			path = "Testability Protocols";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -650,6 +670,8 @@
 				400BC15C1E3D0A5300EE1042 /* LocationSuggestionViewController.swift in Sources */,
 				403DCAC21E3CF124002F18C7 /* LocationSearcher.swift in Sources */,
 				403DCABA1E3CE71A002F18C7 /* Itinerary.swift in Sources */,
+				40CE23F31E56303B00962CD5 /* WCSessionPhoneProtocol.swift in Sources */,
+				40CE23F11E5629AC00962CD5 /* NSUbiquitousKeyValueStoreProtocol.swift in Sources */,
 				403DCABE1E3CEE58002F18C7 /* ItineraryViewController.swift in Sources */,
 				40D7F5BF1E4A648300C4478A /* OverlayViewController.swift in Sources */,
 				403B8AE41E54B064002C10D2 /* URLSessionProtocol.swift in Sources */,
@@ -664,7 +686,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				403B8AE11E54AFF5002C10D2 /* TripSearcherSpec.swift in Sources */,
+				40CE23F61E563BF700962CD5 /* NSUbiquitousKeyValueStoreDouble.swift in Sources */,
 				405D77871E524AD700792118 /* ItinerarySpec.swift in Sources */,
+				40CE23F81E56F5FB00962CD5 /* IOSWCSessionDouble.swift in Sources */,
 				405D778D1E52D4BF00792118 /* UpcomingTripsSpec.swift in Sources */,
 				403B8AE71E54E599002C10D2 /* URLSessionDouble.swift in Sources */,
 				405D77891E524F2200792118 /* LocationSpec.swift in Sources */,
