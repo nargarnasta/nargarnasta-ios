@@ -548,11 +548,11 @@
 			};
 			buildConfigurationList = 405E218C1E3CDFAE004598C4 /* Build configuration list for PBXProject "NarGarNasta" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = sv;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				sv,
 			);
 			mainGroup = 405E21881E3CDFAE004598C4;
 			productRefGroup = 405E21921E3CDFAE004598C4 /* Products */;
