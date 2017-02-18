@@ -22,14 +22,14 @@ describe("IOSPreferencesStore") {
       keyValueStore.valueDictionary = [
         "itineraries": [
           Itinerary(
-            location1: Location(id: "1", name: "A"),
-            location2: Location(id: "2", name: "B")
+            location1: Location.testLocationA,
+            location2: Location.testLocationB
           ).dictionaryRepresentation()
         ]
       ]
       let updatedItinerary = Itinerary(
-        location1: Location(id: "3", name: "C"),
-        location2: Location(id: "4", name: "D")
+        location1: Location.testLocationB,
+        location2: Location.testLocationC
       )
       keyValueStore.nextValueDictionary = [
         "itineraries": [
@@ -57,8 +57,8 @@ describe("IOSPreferencesStore") {
     )
     let itineraries = [
       Itinerary(
-        location1: Location(id: "1", name: "A"),
-        location2: Location(id: "2", name: "B")
+        location1: Location.testLocationA,
+        location2: Location.testLocationB
       )
     ]
 
@@ -136,8 +136,8 @@ describe("IOSPreferencesStore") {
       )
       let itineraries = [
         Itinerary(
-          location1: Location(id: "1", name: "A"),
-          location2: Location(id: "2", name: "B")
+          location1: Location.testLocationA,
+          location2: Location.testLocationB
         )
       ]
 
@@ -240,8 +240,8 @@ describe("IOSPreferencesStore") {
         let keyValueStore = NSUbiquitousKeyValueStoreDouble()
         let itineraries = [
           Itinerary(
-            location1: Location(id: "1", name: "A"),
-            location2: Location(id: "2", name: "B")
+            location1: Location.testLocationA,
+            location2: Location.testLocationB
           )
         ]
         keyValueStore.valueDictionary = [

@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4001A5521E56053400A69B6B /* LocationSearcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4001A5511E56053400A69B6B /* LocationSearcherSpec.swift */; };
+		4001A5631E58A72E00A69B6B /* ItineraryDirectionDeterminer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4001A5621E58A72E00A69B6B /* ItineraryDirectionDeterminer.swift */; };
+		4001A5641E58A72E00A69B6B /* ItineraryDirectionDeterminer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4001A5621E58A72E00A69B6B /* ItineraryDirectionDeterminer.swift */; };
+		4001A5661E58A74200A69B6B /* CLLocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4001A5651E58A74200A69B6B /* CLLocationManagerProtocol.swift */; };
+		4001A5671E58A74200A69B6B /* CLLocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4001A5651E58A74200A69B6B /* CLLocationManagerProtocol.swift */; };
+		4001A5691E58A77500A69B6B /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4001A5681E58A77500A69B6B /* Factories.swift */; };
+		4001A56E1E58B17800A69B6B /* ItineraryDirectionDeterminerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4001A56D1E58B17800A69B6B /* ItineraryDirectionDeterminerSpec.swift */; };
+		4001A5701E58B19C00A69B6B /* CLLocationManagerDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4001A56F1E58B19C00A69B6B /* CLLocationManagerDouble.swift */; };
 		400BC15C1E3D0A5300EE1042 /* LocationSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC15B1E3D0A5300EE1042 /* LocationSuggestionViewController.swift */; };
 		401B7F5D1E3D4A8200723D5C /* TripSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */; };
 		401B7F5F1E3D4B6900723D5C /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5E1E3D4B6900723D5C /* Trip.swift */; };
@@ -110,6 +117,11 @@
 
 /* Begin PBXFileReference section */
 		4001A5511E56053400A69B6B /* LocationSearcherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearcherSpec.swift; sourceTree = "<group>"; };
+		4001A5621E58A72E00A69B6B /* ItineraryDirectionDeterminer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryDirectionDeterminer.swift; sourceTree = "<group>"; };
+		4001A5651E58A74200A69B6B /* CLLocationManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationManagerProtocol.swift; sourceTree = "<group>"; };
+		4001A5681E58A77500A69B6B /* Factories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
+		4001A56D1E58B17800A69B6B /* ItineraryDirectionDeterminerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryDirectionDeterminerSpec.swift; sourceTree = "<group>"; };
+		4001A56F1E58B19C00A69B6B /* CLLocationManagerDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationManagerDouble.swift; sourceTree = "<group>"; };
 		400BC15B1E3D0A5300EE1042 /* LocationSuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSuggestionViewController.swift; sourceTree = "<group>"; };
 		401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSearcher.swift; sourceTree = "<group>"; };
 		401B7F5E1E3D4B6900723D5C /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
@@ -221,6 +233,7 @@
 				403B8AE61E54E599002C10D2 /* URLSessionDouble.swift */,
 				40CE23F51E563BF700962CD5 /* NSUbiquitousKeyValueStoreDouble.swift */,
 				40CE23F71E56F5FB00962CD5 /* IOSWCSessionDouble.swift */,
+				4001A56F1E58B19C00A69B6B /* CLLocationManagerDouble.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -230,6 +243,7 @@
 			children = (
 				4001A5511E56053400A69B6B /* LocationSearcherSpec.swift */,
 				403B8AE01E54AFF5002C10D2 /* TripSearcherSpec.swift */,
+				4001A56D1E58B17800A69B6B /* ItineraryDirectionDeterminerSpec.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -238,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				403B8AE31E54B064002C10D2 /* URLSessionProtocol.swift */,
+				4001A5651E58A74200A69B6B /* CLLocationManagerProtocol.swift */,
 			);
 			path = "Testability Protocols";
 			sourceTree = "<group>";
@@ -257,6 +272,7 @@
 			children = (
 				403DCAC11E3CF124002F18C7 /* LocationSearcher.swift */,
 				401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */,
+				4001A5621E58A72E00A69B6B /* ItineraryDirectionDeterminer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -398,6 +414,7 @@
 				405D77831E524A5100792118 /* NarGarNasta */,
 				405D77841E524A8800792118 /* Shared */,
 				402176701E53810E00C2D244 /* Doubles */,
+				4001A5681E58A77500A69B6B /* Factories.swift */,
 				406206A51E523B60002F2CFB /* Info.plist */,
 			);
 			path = "NarGarNasta Tests";
@@ -644,12 +661,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				403B8AE51E54B064002C10D2 /* URLSessionProtocol.swift in Sources */,
+				4001A5671E58A74200A69B6B /* CLLocationManagerProtocol.swift in Sources */,
 				40F163A61E51FF1F00211FDF /* WatchOSPreferencesStore.swift in Sources */,
 				401B7F8A1E3DDD9F00723D5C /* Trip.swift in Sources */,
 				405ECAA21E3F4581000A289A /* UpcomingTrips.swift in Sources */,
 				401B7F791E3DD4E100723D5C /* ExtensionDelegate.swift in Sources */,
 				401B7F881E3DDD9800723D5C /* Itinerary.swift in Sources */,
 				401B7F8B1E3DDDA500723D5C /* TripSearcher.swift in Sources */,
+				4001A5641E58A72E00A69B6B /* ItineraryDirectionDeterminer.swift in Sources */,
 				401B7F891E3DDD9A00723D5C /* Location.swift in Sources */,
 				40BFCCD71E41167200E255D2 /* Settings.swift in Sources */,
 				401B7F771E3DD4E100723D5C /* ItineraryInterfaceController.swift in Sources */,
@@ -662,6 +681,7 @@
 			files = (
 				40F163A41E51FEB600211FDF /* IOSPreferencesStore.swift in Sources */,
 				401B7F5F1E3D4B6900723D5C /* Trip.swift in Sources */,
+				4001A5661E58A74200A69B6B /* CLLocationManagerProtocol.swift in Sources */,
 				405E21971E3CDFAF004598C4 /* RootViewController.swift in Sources */,
 				40BFCCD61E41167200E255D2 /* Settings.swift in Sources */,
 				40FB9E571E4E4DEE0074BFD8 /* ItineraryCardViewController.swift in Sources */,
@@ -673,6 +693,7 @@
 				40CE23F31E56303B00962CD5 /* WCSessionPhoneProtocol.swift in Sources */,
 				40CE23F11E5629AC00962CD5 /* NSUbiquitousKeyValueStoreProtocol.swift in Sources */,
 				403DCABE1E3CEE58002F18C7 /* ItineraryViewController.swift in Sources */,
+				4001A5631E58A72E00A69B6B /* ItineraryDirectionDeterminer.swift in Sources */,
 				40D7F5BF1E4A648300C4478A /* OverlayViewController.swift in Sources */,
 				403B8AE41E54B064002C10D2 /* URLSessionProtocol.swift in Sources */,
 				405E21951E3CDFAF004598C4 /* AppDelegate.swift in Sources */,
@@ -687,6 +708,8 @@
 			files = (
 				403B8AE11E54AFF5002C10D2 /* TripSearcherSpec.swift in Sources */,
 				40CE23F61E563BF700962CD5 /* NSUbiquitousKeyValueStoreDouble.swift in Sources */,
+				4001A56E1E58B17800A69B6B /* ItineraryDirectionDeterminerSpec.swift in Sources */,
+				4001A5691E58A77500A69B6B /* Factories.swift in Sources */,
 				405D77871E524AD700792118 /* ItinerarySpec.swift in Sources */,
 				40CE23F81E56F5FB00962CD5 /* IOSWCSessionDouble.swift in Sources */,
 				405D778D1E52D4BF00792118 /* UpcomingTripsSpec.swift in Sources */,
@@ -696,6 +719,7 @@
 				405D777D1E523E0F00792118 /* IOSPreferencesStoreSpec.swift in Sources */,
 				4001A5521E56053400A69B6B /* LocationSearcherSpec.swift in Sources */,
 				405D778B1E52536C00792118 /* TripSpec.swift in Sources */,
+				4001A5701E58B19C00A69B6B /* CLLocationManagerDouble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

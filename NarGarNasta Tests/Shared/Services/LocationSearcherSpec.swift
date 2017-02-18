@@ -13,12 +13,16 @@ describe("LocationSearcher") {
             "StopLocation": [
               [
                 "id": "1",
-                "name": "A"
-              ],
+                "name": "A",
+                "lat": NSNumber(value: 58.745),
+                "lon": NSNumber(value: 59.125)
+              ] as [String: Any],
               [
                 "id": "2",
-                "name": "B"
-              ]
+                "name": "B",
+                "lat": NSNumber(value: 57.745),
+                "lon": NSNumber(value: 58.125)
+              ] as [String: Any]
             ]
           ],
           options: []
@@ -33,12 +37,16 @@ describe("LocationSearcher") {
         "StopLocation": [
           [
             "id": "1",
-            "name": "A"
-          ],
+            "name": "A",
+            "lat": NSNumber(value: 58.745),
+            "lon": NSNumber(value: 59.125)
+          ] as [String: Any],
           [
             "id": "2",
-            "name": "B"
-          ]
+            "name": "B",
+            "lat": NSNumber(value: 57.745),
+            "lon": NSNumber(value: 58.125)
+          ] as [String: Any]
         ]
       ])
       let urlSession = URLSessionDouble()

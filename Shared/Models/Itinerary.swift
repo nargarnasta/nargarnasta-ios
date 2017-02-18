@@ -1,3 +1,5 @@
+import CoreLocation
+
 struct Itinerary: Equatable {
   let location1: Location
   let location2: Location
@@ -9,24 +11,22 @@ struct Itinerary: Equatable {
 
   init?(dictionaryRepresentation dictionary: [String: Any]) {
     guard
-      let location1ID = dictionary["location1ID"] as? String,
-      let location1Name = dictionary["location1Name"] as? String,
-      let location2ID = dictionary["location2ID"] as? String,
-      let location2Name = dictionary["location2Name"] as? String
+      let location1Dictionary = dictionary["location1"] as? [String: Any],
+      let location2Dictionary = dictionary["location2"] as? [String: Any],
+      let location1 = Location(dictionaryRepresentation: location1Dictionary),
+      let location2 = Location(dictionaryRepresentation: location2Dictionary)
     else {
       return nil
     }
 
-    self.location1 = Location(id: location1ID, name: location1Name)
-    self.location2 = Location(id: location2ID, name: location2Name)
+    self.location1 = location1
+    self.location2 = location2
   }
 
   func dictionaryRepresentation() -> [String: Any] {
     return [
-      "location1ID": location1.id,
-      "location1Name": location1.name,
-      "location2ID": location2.id,
-      "location2Name": location2.name
+      "location1": location1.dictionaryRepresentation(),
+      "location2": location2.dictionaryRepresentation()
     ]
   }
 

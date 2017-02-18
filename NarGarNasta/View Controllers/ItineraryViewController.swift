@@ -3,6 +3,7 @@ import UIKit
 class ItineraryViewController: UIViewController, UITableViewDataSource {
   var itinerary: Itinerary!
   var upcomingTrips: UpcomingTrips?
+  var directionDeterminer: ItineraryDirectionDeterminer?
   var timer: Timer?
   @IBOutlet weak var nextDepartureMinutesRemainingLabel: UILabel!
   @IBOutlet weak var nextDepartureArrivalTime: UILabel!
@@ -46,6 +47,29 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     return formatter
   }
 
+  private func updateItinerary(origin: Location, destination: Location) {
+    guard upcomingTrips?.origin != origin else {
+      return
+    }
+
+    self.nextDepartureMinutesRemainingLabel.text = "-"
+    self.nextDepartureArrivalTime.text = ""
+
+    departureLocation.text = origin.name
+    arrivalLocation.text = destination.name
+
+    upcomingTrips = UpcomingTrips(
+      origin: itinerary.location1,
+      destination: itinerary.location2
+    ) {
+      DispatchQueue.main.async {
+        self.updateLabels()
+      }
+    }
+
+    subsequentTripsTableView.reloadData()
+  }
+
   // MARK: - UIViewController
 
   override func viewDidLoad() {
@@ -55,21 +79,15 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     subsequentTripsTableView.tableFooterView = UIView()
     self.view.backgroundColor = UIColor.clear
 
-    self.nextDepartureMinutesRemainingLabel.text = "-"
-    self.nextDepartureArrivalTime.text = ""
-
-    departureLocation.text = itinerary.location1.name
-    arrivalLocation.text = itinerary.location2.name
-
-    upcomingTrips = UpcomingTrips(itinerary: itinerary) {
-      DispatchQueue.main.async {
-        self.updateLabels()
-      }
-    }
+    updateItinerary(
+      origin: itinerary.location1,
+      destination: itinerary.location2
+    )
+    directionDeterminer = ItineraryDirectionDeterminer(itinerary: itinerary)
   }
 
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
 
     timer = Timer.scheduledTimer(
       withTimeInterval: 60.0, repeats: true
@@ -79,6 +97,15 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
         self.updateLabels()
       }
     }
+
+    directionDeterminer?.determineBestDirection(
+      completion: { origin, destination in
+        DispatchQueue.main.async {
+          self.updateItinerary(origin: origin, destination: destination)
+        }
+      },
+      error: { error in }
+    )
   }
 
   override func viewDidDisappear(_ animated: Bool) {

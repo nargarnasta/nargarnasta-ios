@@ -1,27 +1,19 @@
 import Foundation
 
 class UpcomingTrips {
-  let itinerary: Itinerary
+  let origin: Location
+  let destination: Location
   let tripSearcher: TripSearcherProtocol
   var trips: [Trip]?
 
-  convenience init(
-    itinerary: Itinerary,
-    searchCompleted: @escaping () -> Void
-  ) {
-    self.init(
-      itinerary: itinerary,
-      tripSearcher: TripSearcher(),
-      searchCompleted: searchCompleted
-    )
-  }
-
   init(
-    itinerary: Itinerary,
-    tripSearcher: TripSearcherProtocol,
+    origin: Location,
+    destination: Location,
+    tripSearcher: TripSearcherProtocol = TripSearcher(),
     searchCompleted: @escaping () -> Void
   ) {
-    self.itinerary = itinerary
+    self.origin = origin
+    self.destination = destination
     self.tripSearcher = tripSearcher
 
     populateFromSearch(completed: searchCompleted)
@@ -44,8 +36,8 @@ class UpcomingTrips {
 
   func populateFromSearch(completed: @escaping () -> Void) {
     tripSearcher.search(
-      origin: itinerary.location1,
-      destination: itinerary.location2
+      origin: origin,
+      destination: destination
     ) { trips in
       self.trips = trips
 

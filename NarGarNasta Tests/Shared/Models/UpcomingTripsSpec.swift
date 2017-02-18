@@ -6,40 +6,38 @@ class UpcomingTripsSpec: QuickSpec { override func spec() {
 
 describe("UpcomingTrips") {
   describe("init(itinerary:searchCompleted:tripSearcher:)") {
-    it("sets itinerary") {
-      let itinerary = Itinerary(
-        location1: Location(id: "1", name: "A"),
-        location2: Location(id: "2", name: "B")
-      )
+    it("sets locations") {
+      let origin = Location.testLocationA
+      let destination = Location.testLocationB
 
       let subject = UpcomingTrips(
-        itinerary: itinerary,
+        origin: origin,
+        destination: destination,
         tripSearcher: TripSearcherDouble()
       ) { }
 
-      expect(subject.itinerary).to(equal(itinerary))
+      expect(subject.origin).to(equal(origin))
+      expect(subject.destination).to(equal(destination))
     }
 
     it("searches for trips with location 1 as origin & 2 as destination") {
-      let location1 = Location(id: "1", name: "A")
-      let location2 = Location(id: "2", name: "B")
-      let itinerary = Itinerary(location1: location1, location2: location2)
+      let origin = Location.testLocationA
+      let destination = Location.testLocationB
       let tripSearcher = TripSearcherDouble()
 
       let _ = UpcomingTrips(
-        itinerary: itinerary,
+        origin: origin,
+        destination: destination,
         tripSearcher: tripSearcher
       ) { }
 
-      expect(tripSearcher.lastSearch?.origin).to(equal(location1))
-      expect(tripSearcher.lastSearch?.destination).to(equal(location2))
+      expect(tripSearcher.lastSearch?.origin).to(equal(origin))
+      expect(tripSearcher.lastSearch?.destination).to(equal(destination))
     }
 
     it("sets result from trip searcher") {
-      let itinerary = Itinerary(
-        location1: Location(id: "1", name: "A"),
-        location2: Location(id: "2", name: "B")
-      )
+      let origin = Location.testLocationA
+      let destination = Location.testLocationB
       let tripSearcher = TripSearcherDouble()
 
       let trip: Trip
@@ -53,7 +51,8 @@ describe("UpcomingTrips") {
       tripSearcher.nextResult = trips
 
       let subject = UpcomingTrips(
-        itinerary: itinerary,
+        origin: origin,
+        destination: destination,
         tripSearcher: tripSearcher
       ) { }
 

@@ -49,8 +49,8 @@ describe("TripSearcher") {
       var trips: [Trip]?
       waitUntil { done in
         tripSearcher.search(
-          origin: Location(id: "1", name: "A"),
-          destination: Location(id: "2", name: "B")
+          origin: Location.testLocationA,
+          destination: Location.testLocationB
         ) { returnedTrips in
           trips = returnedTrips
           done()
@@ -68,8 +68,8 @@ describe("TripSearcher") {
 
       waitUntil { done in
         tripSearcher.search(
-          origin: Location(id: "1", name: "A"),
-          destination: Location(id: "2", name: "B")
+          origin: Location.testLocationA,
+          destination: Location.testLocationB
         ) { _ in
           done()
         }
