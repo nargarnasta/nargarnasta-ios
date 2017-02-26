@@ -14,47 +14,6 @@ class ItineraryInterfaceController: WKInterfaceController {
   var upcomingTrips: UpcomingTrips?
   var updateTimer: Timer?
 
-  override init() {
-    preferencesStore = ExtensionDelegate.shared.preferencesStore
-    notificationCenter = NotificationCenter.default
-
-    super.init()
-  }
-
-  func updateInterface() {
-    NSLog("Updating!")
-
-    guard let itinerary = preferencesStore.itineraries.first else {
-      updateEmptyStateVisibility(empty: true)
-      destinationLabel.setText("-")
-      return
-    }
-
-    destinationLabel.setText("Till \(itinerary.location2.name)")
-
-    guard
-      let trips = upcomingTrips?.trips,
-      let firstTrip = trips.first
-    else {
-      updateEmptyStateVisibility(empty: true)
-      return
-    }
-
-    updateEmptyStateVisibility(empty: false)
-
-    departureTimer.setDate(firstTrip.departureTime)
-
-    let arrivalTime = ItineraryInterfaceController.timeDateFormatter.string(
-      from: firstTrip.arrivalTime
-    )
-    arrivalTimeLabel.setText("Du är framme \(arrivalTime).")
-  }
-
-  private func updateEmptyStateVisibility(empty: Bool) {
-    self.departureTimer.setHidden(empty)
-    self.departureTimerPlaceholderLabel.setHidden(!empty)
-  }
-
   static var timeDateFormatter: DateFormatter {
     let formatter = DateFormatter()
     formatter.dateStyle = .none
@@ -62,24 +21,12 @@ class ItineraryInterfaceController: WKInterfaceController {
     return formatter
   }
 
-  private func updateItinerary(_ itinerary: Itinerary?) {
-    self.itinerary = itinerary
+  override init() {
+    preferencesStore = ExtensionDelegate.shared.preferencesStore
+    notificationCenter = NotificationCenter.default
 
-    if let itinerary = itinerary {
-      upcomingTrips = UpcomingTrips(
-        origin: itinerary.location1,
-        destination: itinerary.location2
-      ) {
-        DispatchQueue.main.async {
-          self.updateInterface()
-        }
-      }
-    } else {
-      self.upcomingTrips = nil
-    }
+    super.init()
   }
-
-  // MARK: - WKInterfaceController
 
   override func willActivate() {
     super.willActivate()
@@ -117,5 +64,56 @@ class ItineraryInterfaceController: WKInterfaceController {
     }
 
     super.didDeactivate()
+  }
+
+  func updateInterface() {
+    NSLog("Updating!")
+
+    guard let itinerary = preferencesStore.itineraries.first else {
+      updateEmptyStateVisibility(empty: true)
+      destinationLabel.setText("-")
+      return
+    }
+
+    destinationLabel.setText("Till \(itinerary.location2.name)")
+
+    guard
+      let trips = upcomingTrips?.trips,
+      let firstTrip = trips.first
+    else {
+      updateEmptyStateVisibility(empty: true)
+      return
+    }
+
+    updateEmptyStateVisibility(empty: false)
+
+    departureTimer.setDate(firstTrip.departureTime)
+
+    let arrivalTime = ItineraryInterfaceController.timeDateFormatter.string(
+      from: firstTrip.arrivalTime
+    )
+    arrivalTimeLabel.setText("Du är framme \(arrivalTime).")
+  }
+
+  private func updateEmptyStateVisibility(empty: Bool) {
+    self.departureTimer.setHidden(empty)
+    self.departureTimerPlaceholderLabel.setHidden(!empty)
+  }
+
+  private func updateItinerary(_ itinerary: Itinerary?) {
+    self.itinerary = itinerary
+
+    if let itinerary = itinerary {
+      upcomingTrips = UpcomingTrips(
+        origin: itinerary.location1,
+        destination: itinerary.location2
+      ) {
+        DispatchQueue.main.async {
+          self.updateInterface()
+        }
+      }
+    } else {
+      self.upcomingTrips = nil
+    }
   }
 }
