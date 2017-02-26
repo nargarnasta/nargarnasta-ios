@@ -36,14 +36,16 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    timer = Timer.scheduledTimer(
-      withTimeInterval: 60.0, repeats: true
+    let timer = Timer(
+      fire: nextMinute(),
+      interval: 60.0,
+      repeats: true
     ) { _ in
-      DispatchQueue.main.async {
-        self.upcomingTrips?.removePassedTrips()
-        self.updateTripLabels()
-      }
+      self.upcomingTrips?.removePassedTrips()
+      self.updateTripLabels()
     }
+    self.timer = timer
+    RunLoop.main.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
 
     directionDeterminer?.determineBestDirection(
       completion: { origin, destination in
@@ -82,7 +84,7 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     updateTripLabels()
   }
 
-  func updateTripLabels() {
+  private func updateTripLabels() {
     if let trips = upcomingTrips?.trips, let firstTrip = trips.first {
       self.nextDepartureMinutesRemainingLabel.text =
         minutesRemaining(to: firstTrip.departureTime)
@@ -112,6 +114,18 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     let arrivalTime =
       ItineraryViewController.timeFormatter.string(from: date)
     return "Du är framme \(arrivalTime)."
+  }
+
+  private func nextMinute() -> Date {
+    guard let nextMinute = Calendar.current.date(
+      bySetting: .second,
+      value: 0,
+      of: Date()
+    ) else {
+      fatalError()
+    }
+
+    return nextMinute
   }
 
   // MARK: - UITableViewDataSource
