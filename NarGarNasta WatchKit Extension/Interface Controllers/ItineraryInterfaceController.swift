@@ -87,13 +87,13 @@ class ItineraryInterfaceController: WKInterfaceController {
     if itinerary != preferencesStore.itineraries.first {
       updateItinerary(preferencesStore.itineraries.first)
     }
-    upcomingTrips?.removePassedTrips()
+    upcomingTrips?.update()
     updateInterface()
 
     updateTimer = Timer.scheduledTimer(
       withTimeInterval: 60, repeats: true
     ) { _ in
-      self.upcomingTrips?.removePassedTrips()
+      self.upcomingTrips?.update()
       self.updateInterface()
     }
 

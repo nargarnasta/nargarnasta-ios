@@ -1,3 +1,4 @@
+import Foundation
 @testable import NarGarNasta
 
 class TripSearcherDouble: TripSearcherProtocol {
@@ -10,7 +11,10 @@ class TripSearcherDouble: TripSearcherProtocol {
     completion: @escaping ([Trip]) -> Void
   ) {
     lastSearch = (origin: origin, destination: destination)
-    completion(nextResult ?? [])
+    let queuedResult = nextResult
+    DispatchQueue.main.async {
+      completion(queuedResult ?? [])
+    }
     nextResult = nil
   }
 }

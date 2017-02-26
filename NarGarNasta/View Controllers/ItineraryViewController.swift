@@ -41,7 +41,7 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
       interval: 60.0,
       repeats: true
     ) { _ in
-      self.upcomingTrips?.removePassedTrips()
+      self.upcomingTrips?.update()
       self.updateTripLabels()
     }
     self.timer = timer
