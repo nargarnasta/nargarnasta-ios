@@ -115,4 +115,17 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
   func sessionWatchStateDidChange(_ session: WCSession) {
     sendItinerariesToWatch()
   }
+
+  func session(
+    _ session: WCSession,
+    didReceiveMessage message: [String : Any]
+  ) {
+    guard let type = message["type"] as? String else { return }
+
+    switch type {
+    case "itinerariesRequest":
+      sendItinerariesToWatch()
+    default: break
+    }
+  }
 }

@@ -21,12 +21,10 @@ class WatchOSPreferencesStore: NSObject, WCSessionDelegate {
 
     super.init()
 
-    if WCSession.isSupported() {
-      let watchSession = WCSession.default()
-      watchSession.delegate = self
-      watchSession.activate()
-      self.watchSession = watchSession
-    }
+    let watchSession = WCSession.default()
+    watchSession.delegate = self
+    watchSession.activate()
+    self.watchSession = watchSession
   }
 
   private static func itinerariesFromStore(
@@ -51,6 +49,12 @@ class WatchOSPreferencesStore: NSObject, WCSessionDelegate {
     error: Error?
   ) {
     NSLog("Activation did complete, error (if any): \(error)")
+
+    self.watchSession?.sendMessage(
+      ["type": "itinerariesRequest"],
+      replyHandler: nil,
+      errorHandler: nil
+    )
   }
 
   func session(

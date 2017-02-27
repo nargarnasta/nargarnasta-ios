@@ -49,6 +49,9 @@ class ItineraryInterfaceController: WKInterfaceController {
       object: preferencesStore,
       queue: OperationQueue.main
     ) { _ in
+      guard self.itinerary != self.preferencesStore.itineraries.first else {
+        return
+      }
       self.updateItinerary(self.preferencesStore.itineraries.first)
       self.updateInterface()
     }

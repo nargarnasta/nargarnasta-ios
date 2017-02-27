@@ -264,6 +264,41 @@ describe("IOSPreferencesStore") {
         expect(contextItineraries).to(equal(itineraries))
       }
     }
+
+    describe("session(:didReceiveMessage:)") {
+      context("when message type is itinerariesRequest") {
+        it("updates watch application context from current itineraries") {
+          let keyValueStore = NSUbiquitousKeyValueStoreDouble()
+          let itineraries = [
+            Itinerary(
+              location1: Location.testLocationA,
+              location2: Location.testLocationB
+            )
+          ]
+          keyValueStore.valueDictionary = [
+            "itineraries": itineraries.map { $0.dictionaryRepresentation() }
+          ]
+          let watchSession = IOSWCSessionDouble()
+          let preferencesStore = IOSPreferencesStore(
+            notificationCenter: NotificationCenter.default,
+            keyValueStore: keyValueStore,
+            watchSession: watchSession
+          )
+
+          preferencesStore.session(
+            WCSession.default(),
+            didReceiveMessage: ["type": "itinerariesRequest"]
+          )
+
+          let dictionaries = watchSession.applicationContext?["itineraries"]
+            as? [[String: Any]]
+          let contextItineraries = dictionaries?.map { dictionary in
+            return Itinerary(dictionaryRepresentation: dictionary)
+          }
+          expect(contextItineraries).to(equal(itineraries))
+        }
+      }
+    }
   }
 }
 
