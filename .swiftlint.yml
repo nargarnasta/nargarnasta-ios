@@ -12,6 +12,7 @@ opt_in_rules:
 disabled_rules:
   - opening_brace # Not for multi-line statements
   - function_body_length # Doesn't work for specs
+  - operator_whitespace
 line_length:
   warning: 80
 variable_name:

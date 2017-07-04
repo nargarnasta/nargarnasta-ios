@@ -1,3 +1,4 @@
+// swiftlint:disable force_unwrapping
 import CoreLocation
 @testable import NarGarNasta
 
