@@ -14,6 +14,6 @@ disabled_rules:
   - function_body_length # Doesn't work for specs
   - operator_whitespace
 line_length:
-  warning: 80
+  warning: 100
 variable_name:
   min_length: 2
