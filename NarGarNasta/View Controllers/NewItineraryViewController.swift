@@ -36,7 +36,7 @@ LocationSuggestionViewControllerDelegate {
     super.init(coder: aDecoder)
   }
 
-  func keyboardWillShow(notification: Notification) {
+  @objc func keyboardWillShow(notification: Notification) {
     guard
       let curveRawValue =
         notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? Int,

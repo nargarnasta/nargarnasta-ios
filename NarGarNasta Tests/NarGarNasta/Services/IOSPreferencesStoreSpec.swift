@@ -254,7 +254,7 @@ describe("IOSPreferencesStore") {
           watchSession: watchSession
         )
 
-        preferencesStore.sessionWatchStateDidChange(WCSession.default())
+        preferencesStore.sessionWatchStateDidChange(WCSession.default)
 
         let dictionaries = watchSession.applicationContext?["itineraries"]
           as? [[String: Any]]
@@ -286,7 +286,7 @@ describe("IOSPreferencesStore") {
           )
 
           preferencesStore.session(
-            WCSession.default(),
+            WCSession.default,
             didReceiveMessage: ["type": "itinerariesRequest"]
           )
 

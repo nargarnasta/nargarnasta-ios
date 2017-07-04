@@ -28,7 +28,10 @@ class TripSearcher: TripSearcherProtocol {
       with: url
     ) { data, response, error in
       guard let data = data, error == nil else {
-        NSLog("Trip search failed: \(error), \(response)")
+        NSLog(
+          "Trip search failed: \(String(describing: error))," +
+          "\(String(describing: response))"
+        )
         return
       }
 
@@ -43,7 +46,7 @@ class TripSearcher: TripSearcherProtocol {
       guard
         let tripJsonObjects = jsonObject?["trips"] as? [[String: Any]]
       else {
-        NSLog("Malformed JSON: \(jsonObject)")
+        NSLog("Malformed JSON: \(String(describing: jsonObject))")
         return
       }
 

@@ -21,7 +21,7 @@ class WatchOSPreferencesStore: NSObject, WCSessionDelegate {
 
     super.init()
 
-    let watchSession = WCSession.default()
+    let watchSession = WCSession.default
     watchSession.delegate = self
     watchSession.activate()
     self.watchSession = watchSession
@@ -48,7 +48,9 @@ class WatchOSPreferencesStore: NSObject, WCSessionDelegate {
     activationDidCompleteWith activationState: WCSessionActivationState,
     error: Error?
   ) {
-    NSLog("Activation did complete, error (if any): \(error)")
+    NSLog(
+      "Activation did complete, error (if any): \(String(describing: error))"
+    )
 
     self.watchSession?.sendMessage(
       ["type": "itinerariesRequest"],

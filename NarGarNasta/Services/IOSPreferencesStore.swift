@@ -15,8 +15,8 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
   init(
     notificationCenter: NotificationCenter = NotificationCenter.default,
     keyValueStore: NSUbiquitousKeyValueStoreProtocol =
-      NSUbiquitousKeyValueStore.default(),
-    watchSession: WCSessionIOSProtocol = WCSession.default()
+      NSUbiquitousKeyValueStore.default,
+    watchSession: WCSessionIOSProtocol = WCSession.default
   ) {
     self.notificationCenter = notificationCenter
     self.keyValueStore = keyValueStore
@@ -89,7 +89,7 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
 
   // MARK: - Notification observers
 
-  func keyValueStoreDidUpdate(notification: NSNotification) {
+  @objc func keyValueStoreDidUpdate(notification: NSNotification) {
     updateItineraries(
       itineraries: IOSPreferencesStore.itinerariesFromStore(
         keyValueStore: keyValueStore

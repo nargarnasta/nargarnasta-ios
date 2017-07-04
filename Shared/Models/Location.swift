@@ -29,8 +29,8 @@ struct Location: Equatable {
     self.id = id
     self.name = name
     self.geolocation = CLLocation(
-      latitude: CLLocationDegrees(latitude),
-      longitude: CLLocationDegrees(longitude)
+      latitude: CLLocationDegrees(exactly: latitude) ?? 0,
+      longitude: CLLocationDegrees(exactly: longitude) ?? 0
     )
   }
 
@@ -47,8 +47,8 @@ struct Location: Equatable {
     self.id = id
     self.name = name
     self.geolocation = CLLocation(
-      latitude: CLLocationDegrees(latitude),
-      longitude: CLLocationDegrees(longitude)
+      latitude: CLLocationDegrees(exactly: latitude) ?? 0,
+      longitude: CLLocationDegrees(exactly: longitude) ?? 0
     )
   }
 

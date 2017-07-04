@@ -12,7 +12,10 @@ class LocationSearcher {
       with: endpointURL(query: query)
     ) { data, response, error in
       guard let data = data, error == nil else {
-        NSLog("Resrobot location search failed: \(error), \(response)")
+        NSLog(
+          "Resrobot location search failed: \(String(describing: error))," +
+          "\(String(describing: response))"
+        )
         return
       }
 
