@@ -16,6 +16,15 @@ struct Location: Equatable {
     self.geolocation = geolocation
   }
 
+  init(resrobotLocation: ResrobotLocation) {
+    self.id = resrobotLocation.id
+    self.name = resrobotLocation.name
+    self.geolocation = Location.clLocationFrom(
+      latitude: resrobotLocation.latitude,
+      longitude: resrobotLocation.longitude
+    )
+  }
+
   init?(dictionaryRepresentation: [String: Any]) {
     guard
       let id = dictionaryRepresentation["id"] as? String,
@@ -28,27 +37,9 @@ struct Location: Equatable {
 
     self.id = id
     self.name = name
-    self.geolocation = CLLocation(
-      latitude: CLLocationDegrees(exactly: latitude) ?? 0,
-      longitude: CLLocationDegrees(exactly: longitude) ?? 0
-    )
-  }
-
-  init(jsonObject: [String: Any]) throws {
-    guard
-      let id = jsonObject["id"] as? String,
-      let name = jsonObject["name"] as? String,
-      let latitude = jsonObject["lat"] as? NSNumber,
-      let longitude = jsonObject["lon"] as? NSNumber
-    else {
-      throw LocationError.parametersMissing
-    }
-
-    self.id = id
-    self.name = name
-    self.geolocation = CLLocation(
-      latitude: CLLocationDegrees(exactly: latitude) ?? 0,
-      longitude: CLLocationDegrees(exactly: longitude) ?? 0
+    self.geolocation = Location.clLocationFrom(
+      latitude: latitude.doubleValue,
+      longitude: longitude.doubleValue
     )
   }
 
@@ -59,7 +50,19 @@ struct Location: Equatable {
       "latitude": NSNumber(value: geolocation.coordinate.latitude),
       "longitude": NSNumber(value: geolocation.coordinate.longitude)
     ]
+
   }
+
+  // MARK: - Conversions
+
+  private static func clLocationFrom(latitude: Double, longitude: Double) -> CLLocation {
+    return CLLocation(
+      latitude: CLLocationDegrees(exactly: latitude) ?? 0,
+      longitude: CLLocationDegrees(exactly: longitude) ?? 0
+    )
+  }
+
+  // MARK: - Equatable
 
   static func ==(lhs: Location, rhs: Location) -> Bool {
     return lhs.id == rhs.id
