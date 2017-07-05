@@ -78,7 +78,7 @@ class ItineraryInterfaceController: WKInterfaceController {
       return
     }
 
-    destinationLabel.setText("Till \(itinerary.location2.name)")
+    destinationLabel.setText("Till \(itinerary.destinationB.name)")
 
     guard
       let trips = upcomingTrips?.trips,
@@ -108,8 +108,8 @@ class ItineraryInterfaceController: WKInterfaceController {
 
     if let itinerary = itinerary {
       upcomingTrips = UpcomingTrips(
-        origin: itinerary.location1,
-        destination: itinerary.location2
+        origin: itinerary.destinationA,
+        destination: itinerary.destinationB
       ) {
         DispatchQueue.main.async {
           self.updateInterface()

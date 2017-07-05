@@ -189,7 +189,7 @@ LocationSuggestionViewControllerDelegate {
       return
     }
 
-    let itinerary = Itinerary(location1: location1, location2: location2)
+    let itinerary = Itinerary(destinationA: location1, destinationB: location2)
     delegate?.newItineraryViewController(self, didCreateItinerary: itinerary)
   }
 }

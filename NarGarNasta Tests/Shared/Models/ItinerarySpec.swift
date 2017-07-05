@@ -9,13 +9,13 @@ describe("Itinerary") {
   describe("init?(dictionaryRepresentation:)") {
     it("initializes from dictionary") {
       let dictionary: [String: Any] = [
-        "location1": [
+        "destinationA": [
           "id": "1",
           "name": "A",
           "latitude": NSNumber(value: 58.745),
           "longitude": NSNumber(value: 59.125)
         ],
-        "location2": [
+        "destinationB": [
           "id": "2",
           "name": "B",
           "latitude": NSNumber(value: 57.745),
@@ -25,8 +25,8 @@ describe("Itinerary") {
 
       let itinerary = Itinerary(dictionaryRepresentation: dictionary)
 
-      expect(itinerary?.location1.id).to(equal("1"))
-      expect(itinerary?.location2.id).to(equal("2"))
+      expect(itinerary?.destinationA.id).to(equal("1"))
+      expect(itinerary?.destinationB.id).to(equal("2"))
     }
 
     context("with missing parameters") {
@@ -41,12 +41,12 @@ describe("Itinerary") {
   describe("dictionaryRepresentation()") {
     it("returns a dictionary representation of itself") {
       let itinerary = Itinerary(
-        location1: Location(
+        destinationA: Location(
           id: "1",
           name: "A",
           geolocation: CLLocation()
         ),
-        location2: Location(
+        destinationB: Location(
           id: "2",
           name: "B",
           geolocation: CLLocation()
@@ -55,23 +55,23 @@ describe("Itinerary") {
 
       let dictionary = itinerary.dictionaryRepresentation()
 
-      let location1Dictionary = dictionary["location1"] as? [String: Any]
-      let location2Dictionary = dictionary["location2"] as? [String: Any]
-      expect(location1Dictionary?["id"] as? String).to(equal("1"))
-      expect(location2Dictionary?["id"] as? String).to(equal("2"))
+      let destinationADictionary = dictionary["destinationA"] as? [String: Any]
+      let destinationBDictionary = dictionary["destinationB"] as? [String: Any]
+      expect(destinationADictionary?["id"] as? String).to(equal("1"))
+      expect(destinationBDictionary?["id"] as? String).to(equal("2"))
     }
   }
 
   describe("==(lhs:rhs:)") {
     it("considers two identical itineraries equal") {
       let lhs = Itinerary(
-        location1: Location(id: "1 ID", name: "1 name", geolocation: CLLocation()),
-        location2: Location(id: "2 ID", name: "2 name", geolocation: CLLocation())
+        destinationA: Location(id: "1 ID", name: "1 name", geolocation: CLLocation()),
+        destinationB: Location(id: "2 ID", name: "2 name", geolocation: CLLocation())
       )
 
       let rhs = Itinerary(
-        location1: Location(id: "1 ID", name: "1 name", geolocation: CLLocation()),
-        location2: Location(id: "2 ID", name: "2 name", geolocation: CLLocation())
+        destinationA: Location(id: "1 ID", name: "1 name", geolocation: CLLocation()),
+        destinationB: Location(id: "2 ID", name: "2 name", geolocation: CLLocation())
       )
 
       expect(lhs == rhs).to(beTrue())
@@ -79,13 +79,13 @@ describe("Itinerary") {
 
     it("considers differing itineraries not equal") {
       let lhs = Itinerary(
-        location1: Location(id: "1 ID", name: "1 name", geolocation: CLLocation()),
-        location2: Location(id: "2 ID", name: "2 name", geolocation: CLLocation())
+        destinationA: Location(id: "1 ID", name: "1 name", geolocation: CLLocation()),
+        destinationB: Location(id: "2 ID", name: "2 name", geolocation: CLLocation())
       )
 
       let rhs = Itinerary(
-        location1: Location(id: "1 ID", name: "1 name", geolocation: CLLocation()),
-        location2: Location(id: "3 ID", name: "3 name", geolocation: CLLocation())
+        destinationA: Location(id: "1 ID", name: "1 name", geolocation: CLLocation()),
+        destinationB: Location(id: "3 ID", name: "3 name", geolocation: CLLocation())
       )
 
       expect(lhs == rhs).to(beFalse())

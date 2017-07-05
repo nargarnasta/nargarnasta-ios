@@ -1,36 +1,34 @@
-import CoreLocation
-
 struct Itinerary: Equatable {
-  let location1: Location
-  let location2: Location
+  let destinationA: Location
+  let destinationB: Location
 
-  init(location1: Location, location2: Location) {
-    self.location1 = location1
-    self.location2 = location2
+  init(destinationA: Location, destinationB: Location) {
+    self.destinationA = destinationA
+    self.destinationB = destinationB
   }
 
   init?(dictionaryRepresentation dictionary: [String: Any]) {
     guard
-      let location1Dictionary = dictionary["location1"] as? [String: Any],
-      let location2Dictionary = dictionary["location2"] as? [String: Any],
-      let location1 = Location(dictionaryRepresentation: location1Dictionary),
-      let location2 = Location(dictionaryRepresentation: location2Dictionary)
+      let destinationADictionary = dictionary["destinationA"] as? [String: Any],
+      let destinationBDictionary = dictionary["destinationB"] as? [String: Any],
+      let destinationA = Location(dictionaryRepresentation: destinationADictionary),
+      let destinationB = Location(dictionaryRepresentation: destinationBDictionary)
     else {
       return nil
     }
 
-    self.location1 = location1
-    self.location2 = location2
+    self.destinationA = destinationA
+    self.destinationB = destinationB
   }
 
   func dictionaryRepresentation() -> [String: Any] {
     return [
-      "location1": location1.dictionaryRepresentation(),
-      "location2": location2.dictionaryRepresentation()
+      "destinationA": destinationA.dictionaryRepresentation(),
+      "destinationB": destinationB.dictionaryRepresentation()
     ]
   }
 
   static func ==(lhs: Itinerary, rhs: Itinerary) -> Bool {
-    return lhs.location1 == rhs.location1 && lhs.location2 == rhs.location2
+    return lhs.destinationA == rhs.destinationA && lhs.destinationB == rhs.destinationB
   }
 }

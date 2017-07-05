@@ -45,14 +45,14 @@ class ItineraryDirectionDeterminer: NSObject, CLLocationManagerDelegate {
 
   private func completeBestDirectionDetermination(location: CLLocation) {
     let distanceToLocation1 =
-      location.distance(from: itinerary.location1.geolocation)
+      location.distance(from: itinerary.destinationA.geolocation)
     let distanceToLocation2 =
-      location.distance(from: itinerary.location2.geolocation)
+      location.distance(from: itinerary.destinationB.geolocation)
 
     if distanceToLocation1 < distanceToLocation2 {
-      completionHandler?(itinerary.location1, itinerary.location2)
+      completionHandler?(itinerary.destinationA, itinerary.destinationB)
     } else {
-      completionHandler?(itinerary.location2, itinerary.location1)
+      completionHandler?(itinerary.destinationB, itinerary.destinationA)
     }
   }
 

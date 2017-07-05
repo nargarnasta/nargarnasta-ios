@@ -22,14 +22,14 @@ describe("IOSPreferencesStore") {
       keyValueStore.valueDictionary = [
         "itineraries": [
           Itinerary(
-            location1: Location.testLocationA,
-            location2: Location.testLocationB
+            destinationA: Location.testLocationA,
+            destinationB: Location.testLocationB
           ).dictionaryRepresentation()
         ]
       ]
       let updatedItinerary = Itinerary(
-        location1: Location.testLocationB,
-        location2: Location.testLocationC
+        destinationA: Location.testLocationB,
+        destinationB: Location.testLocationC
       )
       keyValueStore.nextValueDictionary = [
         "itineraries": [
@@ -57,8 +57,8 @@ describe("IOSPreferencesStore") {
     )
     let itineraries = [
       Itinerary(
-        location1: Location.testLocationA,
-        location2: Location.testLocationB
+        destinationA: Location.testLocationA,
+        destinationB: Location.testLocationB
       )
     ]
 
@@ -136,8 +136,8 @@ describe("IOSPreferencesStore") {
       )
       let itineraries = [
         Itinerary(
-          location1: Location.testLocationA,
-          location2: Location.testLocationB
+          destinationA: Location.testLocationA,
+          destinationB: Location.testLocationB
         )
       ]
 
@@ -240,8 +240,8 @@ describe("IOSPreferencesStore") {
         let keyValueStore = NSUbiquitousKeyValueStoreDouble()
         let itineraries = [
           Itinerary(
-            location1: Location.testLocationA,
-            location2: Location.testLocationB
+            destinationA: Location.testLocationA,
+            destinationB: Location.testLocationB
           )
         ]
         keyValueStore.valueDictionary = [
@@ -271,8 +271,8 @@ describe("IOSPreferencesStore") {
           let keyValueStore = NSUbiquitousKeyValueStoreDouble()
           let itineraries = [
             Itinerary(
-              location1: Location.testLocationA,
-              location2: Location.testLocationB
+              destinationA: Location.testLocationA,
+              destinationB: Location.testLocationB
             )
           ]
           keyValueStore.valueDictionary = [

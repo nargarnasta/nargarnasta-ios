@@ -24,8 +24,8 @@ describe("ItineraryDirectionDeterminer") {
       )
     )
     let itinerary = Itinerary(
-      location1: location1,
-      location2: location2
+      destinationA: location1,
+      destinationB: location2
     )
     let locationManager = CLLocationManagerDouble()
 

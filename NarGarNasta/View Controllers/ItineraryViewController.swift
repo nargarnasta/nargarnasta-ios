@@ -27,8 +27,8 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     self.view.backgroundColor = UIColor.clear
 
     setItinerary(
-      origin: itinerary.location1,
-      destination: itinerary.location2
+      origin: itinerary.destinationA,
+      destination: itinerary.destinationB
     )
     directionDeterminer = ItineraryDirectionDeterminer(itinerary: itinerary)
   }
@@ -73,8 +73,8 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     arrivalLocation.text = destination.name
 
     upcomingTrips = UpcomingTrips(
-      origin: itinerary.location1,
-      destination: itinerary.location2
+      origin: itinerary.destinationA,
+      destination: itinerary.destinationB
     ) {
       DispatchQueue.main.async {
         self.updateTripLabels()
