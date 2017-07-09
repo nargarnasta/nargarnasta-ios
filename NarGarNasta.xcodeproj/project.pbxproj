@@ -30,7 +30,6 @@
 		401B7F8A1E3DDD9F00723D5C /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5E1E3D4B6900723D5C /* Trip.swift */; };
 		401B7F8B1E3DDDA500723D5C /* TripSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B7F5C1E3D4A8200723D5C /* TripSearcher.swift */; };
 		402176721E53814900C2D244 /* TripSearcherDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402176711E53814900C2D244 /* TripSearcherDouble.swift */; };
-		403646011F0D799100E3A893 /* ResrobotLocationsSearchResultsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403646001F0D799100E3A893 /* ResrobotLocationsSearchResultsSpec.swift */; };
 		403646031F0D79EF00E3A893 /* ResrobotLocationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403646021F0D79EF00E3A893 /* ResrobotLocationSpec.swift */; };
 		403B8AE11E54AFF5002C10D2 /* TripSearcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B8AE01E54AFF5002C10D2 /* TripSearcherSpec.swift */; };
 		403B8AE41E54B064002C10D2 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B8AE31E54B064002C10D2 /* URLSessionProtocol.swift */; };
@@ -65,11 +64,9 @@
 		40D7F5BF1E4A648300C4478A /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D7F5BE1E4A648300C4478A /* OverlayViewController.swift */; };
 		40EC30B21F0D278B0044D1DD /* ResrobotLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC30B11F0D278B0044D1DD /* ResrobotLocation.swift */; };
 		40EC30B31F0D278B0044D1DD /* ResrobotLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC30B11F0D278B0044D1DD /* ResrobotLocation.swift */; };
-		40EC30B51F0D27A10044D1DD /* ResrobotLocationsSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC30B41F0D27A10044D1DD /* ResrobotLocationsSearchResults.swift */; };
-		40EC30B61F0D27A10044D1DD /* ResrobotLocationsSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC30B41F0D27A10044D1DD /* ResrobotLocationsSearchResults.swift */; };
-		40EC30B81F0D713A0044D1DD /* ResrobotLocationsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC30B71F0D713A0044D1DD /* ResrobotLocationsClient.swift */; };
-		40EC30B91F0D713A0044D1DD /* ResrobotLocationsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC30B71F0D713A0044D1DD /* ResrobotLocationsClient.swift */; };
-		40EC30BC1F0D71800044D1DD /* ResrobotLocationsClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC30BB1F0D71800044D1DD /* ResrobotLocationsClientSpec.swift */; };
+		40EC30B81F0D713A0044D1DD /* ResrobotClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC30B71F0D713A0044D1DD /* ResrobotClient.swift */; };
+		40EC30B91F0D713A0044D1DD /* ResrobotClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC30B71F0D713A0044D1DD /* ResrobotClient.swift */; };
+		40EC30BC1F0D71800044D1DD /* ResrobotClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC30BB1F0D71800044D1DD /* ResrobotClientSpec.swift */; };
 		40F163A41E51FEB600211FDF /* IOSPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092E2C61E436B680008CF67 /* IOSPreferencesStore.swift */; };
 		40F163A61E51FF1F00211FDF /* WatchOSPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F163A51E51FF1F00211FDF /* WatchOSPreferencesStore.swift */; };
 		40FB9E571E4E4DEE0074BFD8 /* ItineraryCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FB9E561E4E4DEE0074BFD8 /* ItineraryCardViewController.swift */; };
@@ -144,7 +141,6 @@
 		401B7F7A1E3DD4E100723D5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		401B7F7C1E3DD4E100723D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		402176711E53814900C2D244 /* TripSearcherDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSearcherDouble.swift; sourceTree = "<group>"; };
-		403646001F0D799100E3A893 /* ResrobotLocationsSearchResultsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResrobotLocationsSearchResultsSpec.swift; sourceTree = "<group>"; };
 		403646021F0D79EF00E3A893 /* ResrobotLocationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResrobotLocationSpec.swift; sourceTree = "<group>"; };
 		403B8AE01E54AFF5002C10D2 /* TripSearcherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSearcherSpec.swift; sourceTree = "<group>"; };
 		403B8AE31E54B064002C10D2 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
@@ -184,9 +180,8 @@
 		40CE23F71E56F5FB00962CD5 /* IOSWCSessionDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOSWCSessionDouble.swift; sourceTree = "<group>"; };
 		40D7F5BE1E4A648300C4478A /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		40EC30B11F0D278B0044D1DD /* ResrobotLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResrobotLocation.swift; sourceTree = "<group>"; };
-		40EC30B41F0D27A10044D1DD /* ResrobotLocationsSearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResrobotLocationsSearchResults.swift; sourceTree = "<group>"; };
-		40EC30B71F0D713A0044D1DD /* ResrobotLocationsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResrobotLocationsClient.swift; sourceTree = "<group>"; };
-		40EC30BB1F0D71800044D1DD /* ResrobotLocationsClientSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResrobotLocationsClientSpec.swift; sourceTree = "<group>"; };
+		40EC30B71F0D713A0044D1DD /* ResrobotClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResrobotClient.swift; sourceTree = "<group>"; };
+		40EC30BB1F0D71800044D1DD /* ResrobotClientSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResrobotClientSpec.swift; sourceTree = "<group>"; };
 		40F1639F1E50FA5300211FDF /* NarGarNasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarGarNasta.entitlements; sourceTree = "<group>"; };
 		40F163A51E51FF1F00211FDF /* WatchOSPreferencesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchOSPreferencesStore.swift; sourceTree = "<group>"; };
 		40FB9E561E4E4DEE0074BFD8 /* ItineraryCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryCardViewController.swift; sourceTree = "<group>"; };
@@ -465,9 +460,8 @@
 		40EC30B01F0D271B0044D1DD /* Resrobot */ = {
 			isa = PBXGroup;
 			children = (
-				40EC30B71F0D713A0044D1DD /* ResrobotLocationsClient.swift */,
+				40EC30B71F0D713A0044D1DD /* ResrobotClient.swift */,
 				40EC30B11F0D278B0044D1DD /* ResrobotLocation.swift */,
-				40EC30B41F0D27A10044D1DD /* ResrobotLocationsSearchResults.swift */,
 			);
 			path = Resrobot;
 			sourceTree = "<group>";
@@ -475,9 +469,8 @@
 		40EC30BA1F0D71510044D1DD /* Resrobot */ = {
 			isa = PBXGroup;
 			children = (
-				40EC30BB1F0D71800044D1DD /* ResrobotLocationsClientSpec.swift */,
+				40EC30BB1F0D71800044D1DD /* ResrobotClientSpec.swift */,
 				403646021F0D79EF00E3A893 /* ResrobotLocationSpec.swift */,
-				403646001F0D799100E3A893 /* ResrobotLocationsSearchResultsSpec.swift */,
 			);
 			path = Resrobot;
 			sourceTree = "<group>";
@@ -705,12 +698,11 @@
 				40F163A61E51FF1F00211FDF /* WatchOSPreferencesStore.swift in Sources */,
 				401B7F8A1E3DDD9F00723D5C /* Trip.swift in Sources */,
 				405ECAA21E3F4581000A289A /* UpcomingTrips.swift in Sources */,
-				40EC30B61F0D27A10044D1DD /* ResrobotLocationsSearchResults.swift in Sources */,
 				401B7F791E3DD4E100723D5C /* ExtensionDelegate.swift in Sources */,
 				401B7F881E3DDD9800723D5C /* Itinerary.swift in Sources */,
 				40EC30B31F0D278B0044D1DD /* ResrobotLocation.swift in Sources */,
 				401B7F8B1E3DDDA500723D5C /* TripSearcher.swift in Sources */,
-				40EC30B91F0D713A0044D1DD /* ResrobotLocationsClient.swift in Sources */,
+				40EC30B91F0D713A0044D1DD /* ResrobotClient.swift in Sources */,
 				4001A5641E58A72E00A69B6B /* ItineraryDirectionDeterminer.swift in Sources */,
 				401B7F891E3DDD9A00723D5C /* Location.swift in Sources */,
 				40BFCCD71E41167200E255D2 /* Settings.swift in Sources */,
@@ -723,7 +715,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F163A41E51FEB600211FDF /* IOSPreferencesStore.swift in Sources */,
-				40EC30B51F0D27A10044D1DD /* ResrobotLocationsSearchResults.swift in Sources */,
 				401B7F5F1E3D4B6900723D5C /* Trip.swift in Sources */,
 				4001A5661E58A74200A69B6B /* CLLocationManagerProtocol.swift in Sources */,
 				405E21971E3CDFAF004598C4 /* RootViewController.swift in Sources */,
@@ -740,7 +731,7 @@
 				4001A5631E58A72E00A69B6B /* ItineraryDirectionDeterminer.swift in Sources */,
 				40D7F5BF1E4A648300C4478A /* OverlayViewController.swift in Sources */,
 				403B8AE41E54B064002C10D2 /* URLSessionProtocol.swift in Sources */,
-				40EC30B81F0D713A0044D1DD /* ResrobotLocationsClient.swift in Sources */,
+				40EC30B81F0D713A0044D1DD /* ResrobotClient.swift in Sources */,
 				405E21951E3CDFAF004598C4 /* AppDelegate.swift in Sources */,
 				403DCAC01E3CEE74002F18C7 /* NewItineraryViewController.swift in Sources */,
 				403DCAC41E3CF37A002F18C7 /* Location.swift in Sources */,
@@ -752,7 +743,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40EC30BC1F0D71800044D1DD /* ResrobotLocationsClientSpec.swift in Sources */,
+				40EC30BC1F0D71800044D1DD /* ResrobotClientSpec.swift in Sources */,
 				403B8AE11E54AFF5002C10D2 /* TripSearcherSpec.swift in Sources */,
 				40CE23F61E563BF700962CD5 /* NSUbiquitousKeyValueStoreDouble.swift in Sources */,
 				4001A56E1E58B17800A69B6B /* ItineraryDirectionDeterminerSpec.swift in Sources */,
@@ -767,7 +758,6 @@
 				405D777D1E523E0F00792118 /* IOSPreferencesStoreSpec.swift in Sources */,
 				4001A5521E56053400A69B6B /* LocationSearcherSpec.swift in Sources */,
 				405D778B1E52536C00792118 /* TripSpec.swift in Sources */,
-				403646011F0D799100E3A893 /* ResrobotLocationsSearchResultsSpec.swift in Sources */,
 				4001A5701E58B19C00A69B6B /* CLLocationManagerDouble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

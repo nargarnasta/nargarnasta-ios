@@ -24,8 +24,8 @@ describe("LocationSearcher") {
       """.data(using: .utf8)
       let urlSession = URLSessionDouble()
       urlSession.queuedResponses.append((resrobotResponseData, URLResponse(), nil))
-      let resrobotLocationsClient = ResrobotLocationsClient(urlSession: urlSession)
-      let locationSearcher = LocationSearcher(resrobotLocationsClient: resrobotLocationsClient)
+      ResrobotClient.shared = ResrobotClient(urlSession: urlSession)
+      let locationSearcher = LocationSearcher()
 
       var locations: [Location]?
       waitUntil { done in
