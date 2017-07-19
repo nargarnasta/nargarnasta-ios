@@ -5,14 +5,7 @@ import Nimble
 class UpcomingTripsSpec: QuickSpec { override func spec() {
 
 func buildTrip(departure: Date, arrival: Date) -> Trip {
-  let trip: Trip
-  do {
-    trip = try Trip(jsonObject: [
-      "departure_time": ISO8601DateFormatter().string(from: departure),
-      "arrival_time": ISO8601DateFormatter().string(from: arrival)
-    ])
-  } catch { fatalError() }
-  return trip
+  return Trip(departureTime: departure, arrivalTime: arrival)
 }
 
 describe("UpcomingTrips") {

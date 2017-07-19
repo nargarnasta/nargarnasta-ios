@@ -41,6 +41,9 @@
 		403DCAC01E3CEE74002F18C7 /* NewItineraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCABF1E3CEE74002F18C7 /* NewItineraryViewController.swift */; };
 		403DCAC21E3CF124002F18C7 /* LocationSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCAC11E3CF124002F18C7 /* LocationSearcher.swift */; };
 		403DCAC41E3CF37A002F18C7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DCAC31E3CF37A002F18C7 /* Location.swift */; };
+		4042F51C1F1021B2006F910E /* NarGarNastaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4042F51B1F1021B2006F910E /* NarGarNastaClient.swift */; };
+		4042F51D1F1021B2006F910E /* NarGarNastaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4042F51B1F1021B2006F910E /* NarGarNastaClient.swift */; };
+		404B5EF51F12A233006DD2B9 /* NarGarNastaClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404B5EF41F12A233006DD2B9 /* NarGarNastaClientSpec.swift */; };
 		405D77781E523D0D00792118 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405D77771E523D0D00792118 /* Nimble.framework */; };
 		405D777A1E523D1100792118 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405D77791E523D1100792118 /* Quick.framework */; };
 		405D777D1E523E0F00792118 /* IOSPreferencesStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D777C1E523E0F00792118 /* IOSPreferencesStoreSpec.swift */; };
@@ -151,6 +154,8 @@
 		403DCABF1E3CEE74002F18C7 /* NewItineraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItineraryViewController.swift; sourceTree = "<group>"; };
 		403DCAC11E3CF124002F18C7 /* LocationSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearcher.swift; sourceTree = "<group>"; };
 		403DCAC31E3CF37A002F18C7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4042F51B1F1021B2006F910E /* NarGarNastaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NarGarNastaClient.swift; sourceTree = "<group>"; };
+		404B5EF41F12A233006DD2B9 /* NarGarNastaClientSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NarGarNastaClientSpec.swift; sourceTree = "<group>"; };
 		405D77771E523D0D00792118 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		405D77791E523D1100792118 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		405D777C1E523E0F00792118 /* IOSPreferencesStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOSPreferencesStoreSpec.swift; sourceTree = "<group>"; };
@@ -214,6 +219,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4004A39A1F0D897900DA9892 /* NarGarNastaClient */ = {
+			isa = PBXGroup;
+			children = (
+				4042F51B1F1021B2006F910E /* NarGarNastaClient.swift */,
+				401B7F5E1E3D4B6900723D5C /* Trip.swift */,
+			);
+			path = NarGarNastaClient;
+			sourceTree = "<group>";
+		};
 		401B7F661E3DD4E100723D5C /* NarGarNasta WatchKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,10 +306,18 @@
 			children = (
 				403DCAB91E3CE71A002F18C7 /* Itinerary.swift */,
 				403DCAC31E3CF37A002F18C7 /* Location.swift */,
-				401B7F5E1E3D4B6900723D5C /* Trip.swift */,
 				405ECAA01E3F4581000A289A /* UpcomingTrips.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4042F51A1F1020D8006F910E /* NarGarNastaClient */ = {
+			isa = PBXGroup;
+			children = (
+				404B5EF41F12A233006DD2B9 /* NarGarNastaClientSpec.swift */,
+				405D778A1E52536C00792118 /* TripSpec.swift */,
+			);
+			path = NarGarNastaClient;
 			sourceTree = "<group>";
 		};
 		405D77761E523D0D00792118 /* Frameworks */ = {
@@ -328,6 +350,7 @@
 			children = (
 				405D77851E524AC100792118 /* Models */,
 				403B8ADF1E54AFA0002C10D2 /* Services */,
+				4042F51A1F1020D8006F910E /* NarGarNastaClient */,
 				40EC30BA1F0D71510044D1DD /* Resrobot */,
 			);
 			path = Shared;
@@ -338,7 +361,6 @@
 			children = (
 				405D77861E524AD700792118 /* ItinerarySpec.swift */,
 				405D77881E524F2200792118 /* LocationSpec.swift */,
-				405D778A1E52536C00792118 /* TripSpec.swift */,
 				405D778C1E52D4BF00792118 /* UpcomingTripsSpec.swift */,
 			);
 			path = Models;
@@ -404,6 +426,7 @@
 			children = (
 				403DCAB81E3CE6EA002F18C7 /* Models */,
 				403DCAB51E3CE660002F18C7 /* Services */,
+				4004A39A1F0D897900DA9892 /* NarGarNastaClient */,
 				40EC30B01F0D271B0044D1DD /* Resrobot */,
 				403B8AE21E54B02C002C10D2 /* Testability Protocols */,
 				40BFCCD01E4115D800E255D2 /* Settings.swift */,
@@ -696,6 +719,7 @@
 				403B8AE51E54B064002C10D2 /* URLSessionProtocol.swift in Sources */,
 				4001A5671E58A74200A69B6B /* CLLocationManagerProtocol.swift in Sources */,
 				40F163A61E51FF1F00211FDF /* WatchOSPreferencesStore.swift in Sources */,
+				4042F51D1F1021B2006F910E /* NarGarNastaClient.swift in Sources */,
 				401B7F8A1E3DDD9F00723D5C /* Trip.swift in Sources */,
 				405ECAA21E3F4581000A289A /* UpcomingTrips.swift in Sources */,
 				401B7F791E3DD4E100723D5C /* ExtensionDelegate.swift in Sources */,
@@ -716,6 +740,7 @@
 			files = (
 				40F163A41E51FEB600211FDF /* IOSPreferencesStore.swift in Sources */,
 				401B7F5F1E3D4B6900723D5C /* Trip.swift in Sources */,
+				4042F51C1F1021B2006F910E /* NarGarNastaClient.swift in Sources */,
 				4001A5661E58A74200A69B6B /* CLLocationManagerProtocol.swift in Sources */,
 				405E21971E3CDFAF004598C4 /* RootViewController.swift in Sources */,
 				40BFCCD61E41167200E255D2 /* Settings.swift in Sources */,
@@ -744,6 +769,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40EC30BC1F0D71800044D1DD /* ResrobotClientSpec.swift in Sources */,
+				404B5EF51F12A233006DD2B9 /* NarGarNastaClientSpec.swift in Sources */,
 				403B8AE11E54AFF5002C10D2 /* TripSearcherSpec.swift in Sources */,
 				40CE23F61E563BF700962CD5 /* NSUbiquitousKeyValueStoreDouble.swift in Sources */,
 				4001A56E1E58B17800A69B6B /* ItineraryDirectionDeterminerSpec.swift in Sources */,
