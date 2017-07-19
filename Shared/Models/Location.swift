@@ -6,9 +6,13 @@ enum LocationError: Error {
 }
 
 struct Location: Equatable {
+  // MARK: - Properties
+
   let id: String
   let name: String
   let geolocation: CLLocation
+
+  // MARK: - Initializers
 
   init(id: String, name: String, geolocation: CLLocation) {
     self.id = id
@@ -24,6 +28,8 @@ struct Location: Equatable {
       longitude: resrobotLocation.longitude
     )
   }
+
+  // MARK: - Dictionary coding
 
   init?(dictionaryRepresentation: [String: Any]) {
     guard
@@ -52,8 +58,6 @@ struct Location: Equatable {
     ]
 
   }
-
-  // MARK: - Conversions
 
   private static func clLocationFrom(latitude: Double, longitude: Double) -> CLLocation {
     return CLLocation(

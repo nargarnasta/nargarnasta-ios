@@ -1,11 +1,17 @@
 struct Itinerary: Equatable {
+  // MARK: - Properties
+
   let destinationA: Location
   let destinationB: Location
+
+  // MARK: - Initializers
 
   init(destinationA: Location, destinationB: Location) {
     self.destinationA = destinationA
     self.destinationB = destinationB
   }
+
+  // MARK: - Dictionary coding
 
   init?(dictionaryRepresentation dictionary: [String: Any]) {
     guard
@@ -27,6 +33,8 @@ struct Itinerary: Equatable {
       "destinationB": destinationB.dictionaryRepresentation()
     ]
   }
+
+  // MARK: - Equatable
 
   static func ==(lhs: Itinerary, rhs: Itinerary) -> Bool {
     return lhs.destinationA == rhs.destinationA && lhs.destinationB == rhs.destinationB
