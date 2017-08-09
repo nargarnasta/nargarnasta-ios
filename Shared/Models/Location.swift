@@ -56,8 +56,9 @@ struct Location: Equatable {
       "latitude": NSNumber(value: geolocation.coordinate.latitude),
       "longitude": NSNumber(value: geolocation.coordinate.longitude)
     ]
-
   }
+
+  // MARK: - Internal translation
 
   private static func clLocationFrom(latitude: Double, longitude: Double) -> CLLocation {
     return CLLocation(
