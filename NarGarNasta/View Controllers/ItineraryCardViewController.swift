@@ -7,8 +7,7 @@ protocol ItineraryCardViewControllerDelegate: class {
   )
 }
 
-class ItineraryCardViewController: UIViewController,
-NewItineraryViewControllerDelegate {
+class ItineraryCardViewController: UIViewController, NewItineraryViewControllerDelegate {
   weak var delegate: ItineraryCardViewControllerDelegate?
   var itinerary: Itinerary?
 
@@ -39,12 +38,10 @@ NewItineraryViewControllerDelegate {
     )
   }
 
-  private func createNewItineraryViewController()
-    -> NewItineraryViewController {
+  private func createNewItineraryViewController() -> NewItineraryViewController {
     guard
       let newItineraryViewController = UIStoryboard(name: "Main", bundle: nil)
-        .instantiateViewController(withIdentifier: "newItinerary")
-        as? NewItineraryViewController
+        .instantiateViewController(withIdentifier: "newItinerary") as? NewItineraryViewController
     else {
       fatalError()
     }
@@ -56,8 +53,7 @@ NewItineraryViewControllerDelegate {
     -> ItineraryViewController {
     guard
       let viewController = UIStoryboard(name: "Main", bundle: nil)
-        .instantiateViewController(withIdentifier: "itinerary")
-        as? ItineraryViewController
+        .instantiateViewController(withIdentifier: "itinerary") as? ItineraryViewController
     else {
       fatalError()
     }

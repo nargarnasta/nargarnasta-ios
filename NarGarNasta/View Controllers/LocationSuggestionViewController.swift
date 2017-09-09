@@ -40,10 +40,7 @@ class LocationSuggestionViewController: UITableViewController {
 
   // MARK: - UITableViewDelegate
 
-  override func tableView(
-    _ tableView: UITableView,
-    didSelectRowAt indexPath: IndexPath
-    ) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     delegate?.locationSuggestionViewController(
       self,
       didSelectLocation: suggestions[indexPath.row]
@@ -56,29 +53,20 @@ class LocationSuggestionViewController: UITableViewController {
     return 1
   }
 
-  override func tableView(
-    _ tableView: UITableView,
-    numberOfRowsInSection section: Int
-  ) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return suggestions.count
   }
 
-  override func tableView(
-    _ tableView: UITableView,
-    cellForRowAt indexPath: IndexPath
-  ) -> UITableViewCell {
-    guard
-      let cell = tableView.dequeueReusableCell(withIdentifier: "suggestion")
-    else {
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+  -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "suggestion") else {
       fatalError("Interface not configured")
     }
     cell.textLabel?.text = suggestions[indexPath.row].name
     cell.backgroundColor = UIColor.clear
     cell.backgroundView = UIView()
     let backgroundView = UIView()
-    backgroundView.backgroundColor = UIColor(
-      red: 1, green: 1, blue: 1, alpha: 0.2
-    )
+    backgroundView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
     cell.selectedBackgroundView = backgroundView
     return cell
   }

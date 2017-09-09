@@ -26,21 +26,14 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     subsequentTripsTableView.tableFooterView = UIView()
     self.view.backgroundColor = UIColor.clear
 
-    setItinerary(
-      origin: itinerary.destinationA,
-      destination: itinerary.destinationB
-    )
+    setItinerary(origin: itinerary.destinationA, destination: itinerary.destinationB)
     directionDeterminer = ItineraryDirectionDeterminer(itinerary: itinerary)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    let timer = Timer(
-      fire: nextMinute(),
-      interval: 60.0,
-      repeats: true
-    ) { _ in
+    let timer = Timer(fire: nextMinute(), interval: 60.0, repeats: true) { _ in
       self.upcomingTrips?.update()
       self.updateTripLabels()
     }
@@ -65,9 +58,7 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
   }
 
   private func setItinerary(origin: Location, destination: Location) {
-    guard upcomingTrips?.origin != origin else {
-      return
-    }
+    guard upcomingTrips?.origin != origin else { return }
 
     departureLocation.text = origin.name
     arrivalLocation.text = destination.name
@@ -86,17 +77,14 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
 
   private func updateTripLabels() {
     if let trips = upcomingTrips?.trips, let firstTrip = trips.first {
-      self.nextDepartureMinutesRemainingLabel.text =
-        minutesRemaining(to: firstTrip.departureTime)
-      self.nextDepartureArrivalTime.text =
-        arrivalDescription(date: firstTrip.arrivalTime)
+      self.nextDepartureMinutesRemainingLabel.text = minutesRemaining(to: firstTrip.departureTime)
+      self.nextDepartureArrivalTime.text = arrivalDescription(date: firstTrip.arrivalTime)
     } else {
       self.nextDepartureMinutesRemainingLabel.text = "-"
       self.nextDepartureArrivalTime.text = ""
     }
 
-    self.minutesLabel.isHidden =
-      self.nextDepartureMinutesRemainingLabel.text == "Nu"
+    self.minutesLabel.isHidden = self.nextDepartureMinutesRemainingLabel.text == "Nu"
 
     subsequentTripsTableView.reloadData()
   }
@@ -111,17 +99,12 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
   }
 
   private func arrivalDescription(date: Date) -> String {
-    let arrivalTime =
-      ItineraryViewController.timeFormatter.string(from: date)
+    let arrivalTime = ItineraryViewController.timeFormatter.string(from: date)
     return "Du är framme \(arrivalTime)."
   }
 
   private func nextMinute() -> Date {
-    guard let nextMinute = Calendar.current.date(
-      bySetting: .second,
-      value: 0,
-      of: Date()
-    ) else {
+    guard let nextMinute = Calendar.current.date(bySetting: .second, value: 0, of: Date()) else {
       fatalError()
     }
 
@@ -134,40 +117,28 @@ class ItineraryViewController: UIViewController, UITableViewDataSource {
     return 1
   }
 
-  func tableView(
-    _ tableView: UITableView, numberOfRowsInSection section: Int
-  ) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     guard let trips = upcomingTrips?.trips else { return 0 }
     return trips.count - 1
   }
 
-  func tableView(
-    _ tableView: UITableView, cellForRowAt indexPath: IndexPath
-  ) -> UITableViewCell {
-    guard
-      let cell = subsequentTripsTableView.dequeueReusableCell(
-        withIdentifier: "trip"
-      )
-    else {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = subsequentTripsTableView.dequeueReusableCell(withIdentifier: "trip") else {
       fatalError(
-        "Couldn't dequeue cell with identifier trip, interface is not " +
-        "configured correctly"
+        "Couldn't dequeue cell with identifier trip, interface is not configured correctly"
       )
     }
 
     guard let trips = upcomingTrips?.trips else { return cell }
 
     let trip = trips[indexPath.row + 1]
-    cell.textLabel?.text =
-      "Avgång om \(minutesRemaining(to: trip.departureTime))"
+    cell.textLabel?.text = "Avgång om \(minutesRemaining(to: trip.departureTime))"
     cell.detailTextLabel?.text = arrivalDescription(date: trip.arrivalTime)
 
     cell.backgroundColor = UIColor.clear
     cell.backgroundView = UIView()
     let backgroundView = UIView()
-    backgroundView.backgroundColor = UIColor(
-      red: 1, green: 1, blue: 1, alpha: 0.2
-    )
+    backgroundView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
     cell.selectedBackgroundView = backgroundView
 
     return cell

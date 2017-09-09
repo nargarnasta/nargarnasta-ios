@@ -12,48 +12,35 @@ ItineraryCardViewControllerDelegate {
   }
 
   func showNewItineraryViewController() {
-    if
-      pageViewControllers.contains(where: { $0.itinerary == nil })
-    {
+    if pageViewControllers.contains(where: { $0.itinerary == nil }) {
       return
     }
 
     let viewController = createItineraryCardViewController(itinerary: nil)
     pageViewControllers.append(viewController)
 
-    setViewControllers(
-      [viewController], direction: .forward, animated: true
-    ) { _ in }
+    setViewControllers([viewController], direction: .forward, animated: true) { _ in }
   }
 
   private func populateViewControllers() {
     for itinerary in preferencesStore.itineraries {
-      pageViewControllers.append(
-        createItineraryCardViewController(itinerary: itinerary)
-      )
+      pageViewControllers.append(createItineraryCardViewController(itinerary: itinerary))
     }
 
     if pageViewControllers.isEmpty {
-      pageViewControllers.append(
-        createItineraryCardViewController(itinerary: nil)
-      )
+      pageViewControllers.append(createItineraryCardViewController(itinerary: nil))
     }
 
-    guard let firstViewController = pageViewControllers.first else {
-      fatalError()
-    }
+    guard let firstViewController = pageViewControllers.first else { fatalError() }
 
-    setViewControllers(
-      [firstViewController], direction: .forward, animated: false
-    ) { _ in }
+    setViewControllers([firstViewController], direction: .forward, animated: false) { _ in }
   }
 
   private func createItineraryCardViewController(itinerary: Itinerary?)
     -> ItineraryCardViewController {
     guard
       let viewController = UIStoryboard(name: "Main", bundle: nil)
-        .instantiateViewController(withIdentifier: "itineraryCard")
-        as? ItineraryCardViewController
+        .instantiateViewController(withIdentifier: "itineraryCard") as? ItineraryCardViewController
     else {
       fatalError()
     }

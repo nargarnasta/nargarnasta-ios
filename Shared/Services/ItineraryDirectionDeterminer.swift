@@ -7,12 +7,8 @@ enum ItineraryDirectionDeterminerError: Error {
 class ItineraryDirectionDeterminer: NSObject, CLLocationManagerDelegate {
   let locationManager: CLLocationManagerProtocol
   let itinerary: Itinerary
-  private var completionHandler: (
-    (_ origin: Location, _ destination: Location) -> Void
-  )?
-  private var errorHandler: (
-    (_ error: ItineraryDirectionDeterminerError) -> Void
-  )?
+  private var completionHandler: ((_ origin: Location, _ destination: Location) -> Void)?
+  private var errorHandler: ((_ error: ItineraryDirectionDeterminerError) -> Void)?
 
   init(
     itinerary: Itinerary,
@@ -62,9 +58,7 @@ class ItineraryDirectionDeterminer: NSObject, CLLocationManagerDelegate {
     _ manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]
   ) {
-    guard let location = locations.last else {
-      return
-    }
+    guard let location = locations.last else { return }
     completeBestDirectionDetermination(location: location)
   }
 

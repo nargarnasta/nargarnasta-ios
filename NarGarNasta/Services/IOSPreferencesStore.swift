@@ -24,9 +24,7 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
 
     let _ = self.keyValueStore.synchronize()
 
-    self.itineraries = IOSPreferencesStore.itinerariesFromStore(
-      keyValueStore: keyValueStore
-    )
+    self.itineraries = IOSPreferencesStore.itinerariesFromStore(keyValueStore: keyValueStore)
 
     super.init()
 
@@ -55,15 +53,12 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
   }
 
   private func sendItinerariesToWatch() {
-    guard watchSession.isSupported && watchSession.isWatchAppInstalled else {
-      return
-    }
+    guard watchSession.isSupported && watchSession.isWatchAppInstalled else { return }
 
     do {
       try watchSession.updateApplicationContext(
         [
-          IOSPreferencesStore.itinerariesStoreKey:
-            itineraries.map { $0.dictionaryRepresentation() }
+          IOSPreferencesStore.itinerariesStoreKey: itineraries.map { $0.dictionaryRepresentation() }
         ]
       )
     } catch {
@@ -71,9 +66,8 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
     }
   }
 
-  private static func itinerariesFromStore(
-    keyValueStore: NSUbiquitousKeyValueStoreProtocol
-  ) -> [Itinerary] {
+  private static func itinerariesFromStore(keyValueStore: NSUbiquitousKeyValueStoreProtocol)
+  -> [Itinerary] {
     if
       let itineraryDictionaries = keyValueStore.array(
         forKey: IOSPreferencesStore.itinerariesStoreKey
@@ -91,9 +85,7 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
 
   @objc func keyValueStoreDidUpdate(notification: NSNotification) {
     updateItineraries(
-      itineraries: IOSPreferencesStore.itinerariesFromStore(
-        keyValueStore: keyValueStore
-      )
+      itineraries: IOSPreferencesStore.itinerariesFromStore(keyValueStore: keyValueStore)
     )
 
     notificationCenter.post(
@@ -116,10 +108,7 @@ class IOSPreferencesStore: NSObject, WCSessionDelegate {
     sendItinerariesToWatch()
   }
 
-  func session(
-    _ session: WCSession,
-    didReceiveMessage message: [String : Any]
-  ) {
+  func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
     guard let type = message["type"] as? String else { return }
 
     switch type {

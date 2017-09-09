@@ -37,9 +37,7 @@ class ItineraryInterfaceController: WKInterfaceController {
     upcomingTrips?.update()
     updateInterface()
 
-    updateTimer = Timer.scheduledTimer(
-      withTimeInterval: 60, repeats: true
-    ) { _ in
+    updateTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
       self.upcomingTrips?.update()
       self.updateInterface()
     }
@@ -49,9 +47,7 @@ class ItineraryInterfaceController: WKInterfaceController {
       object: preferencesStore,
       queue: OperationQueue.main
     ) { _ in
-      guard self.itinerary != self.preferencesStore.itineraries.first else {
-        return
-      }
+      guard self.itinerary != self.preferencesStore.itineraries.first else { return }
       self.updateItinerary(self.preferencesStore.itineraries.first)
       self.updateInterface()
     }
@@ -80,10 +76,7 @@ class ItineraryInterfaceController: WKInterfaceController {
 
     destinationLabel.setText("Till \(itinerary.destinationB.name)")
 
-    guard
-      let trips = upcomingTrips?.trips,
-      let firstTrip = trips.first
-    else {
+    guard let trips = upcomingTrips?.trips, let firstTrip = trips.first else {
       updateEmptyStateVisibility(empty: true)
       return
     }

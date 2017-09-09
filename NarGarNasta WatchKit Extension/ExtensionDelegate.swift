@@ -4,9 +4,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
   let preferencesStore = WatchOSPreferencesStore()
 
   static var shared: ExtensionDelegate {
-    guard
-      let delegate = WKExtension.shared().delegate as? ExtensionDelegate
-    else {
+    guard let delegate = WKExtension.shared().delegate as? ExtensionDelegate else {
       fatalError("Extension delegate not correctly in place.")
     }
     return delegate

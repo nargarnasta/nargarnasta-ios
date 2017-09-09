@@ -13,9 +13,7 @@ struct ResrobotLocation: Decodable {
       resourceName: "location.name",
       queryItems: [URLQueryItem(name: "input", value: query)]
     ) { (results: SearchResponse?, _) in
-      guard let locations = results?.locations else {
-        return
-      }
+      guard let locations = results?.locations else { return }
       completion(locations)
     }
   }

@@ -18,9 +18,7 @@ struct Trip: Equatable, Decodable {
         URLQueryItem(name: "destinationId", value: destination.id)
       ]
     ) { (response: SearchResponse?, _) in
-      guard let trips = response?.trips else {
-        return
-      }
+      guard let trips = response?.trips else { return }
       completion(trips)
     }
   }
@@ -35,10 +33,7 @@ struct Trip: Equatable, Decodable {
   // MARK: - Equatable
 
   static func ==(lhs: Trip, rhs: Trip) -> Bool {
-    return (
-      lhs.departureTime == rhs.departureTime &&
-      lhs.arrivalTime == rhs.arrivalTime
-    )
+    return (lhs.departureTime == rhs.departureTime && lhs.arrivalTime == rhs.arrivalTime)
   }
 }
 

@@ -22,9 +22,7 @@ class UpcomingTrips {
   }
 
   func update() {
-    guard let trips = self.trips else {
-      return
-    }
+    guard let trips = self.trips else { return }
 
     let previousTripCount = trips.count
 
@@ -43,10 +41,7 @@ class UpcomingTrips {
   }
 
   private func populateFromSearch() {
-    tripSearcher.search(
-      origin: origin,
-      destination: destination
-    ) { trips in
+    tripSearcher.search(origin: origin, destination: destination) { trips in
       self.trips = trips
 
       self.tripsUpdatedHandler()

@@ -15,9 +15,7 @@ class WatchOSPreferencesStore: NSObject, WCSessionDelegate {
     notificationCenter = NotificationCenter.default
     keyValueStore = UserDefaults.standard
 
-    self.itineraries = WatchOSPreferencesStore.itinerariesFromStore(
-      keyValueStore: keyValueStore
-    )
+    self.itineraries = WatchOSPreferencesStore.itinerariesFromStore(keyValueStore: keyValueStore)
 
     super.init()
 
@@ -27,9 +25,7 @@ class WatchOSPreferencesStore: NSObject, WCSessionDelegate {
     self.watchSession = watchSession
   }
 
-  private static func itinerariesFromStore(
-    keyValueStore: UserDefaults
-  ) -> [Itinerary] {
+  private static func itinerariesFromStore(keyValueStore: UserDefaults) -> [Itinerary] {
     if let itineraryDictionaries = keyValueStore.array(
       forKey: WatchOSPreferencesStore.itinerariesStoreKey
     ) as? [[String: Any]] {
@@ -48,9 +44,7 @@ class WatchOSPreferencesStore: NSObject, WCSessionDelegate {
     activationDidCompleteWith activationState: WCSessionActivationState,
     error: Error?
   ) {
-    NSLog(
-      "Activation did complete, error (if any): \(String(describing: error))"
-    )
+    NSLog("Activation did complete, error (if any): \(String(describing: error))")
 
     self.watchSession?.sendMessage(
       ["type": "itinerariesRequest"],
@@ -65,16 +59,12 @@ class WatchOSPreferencesStore: NSObject, WCSessionDelegate {
   ) {
     guard
       let dictionaries =
-        applicationContext[WatchOSPreferencesStore.itinerariesStoreKey]
-          as? [[String: Any]]
+        applicationContext[WatchOSPreferencesStore.itinerariesStoreKey] as? [[String: Any]]
     else {
       return
     }
 
-    keyValueStore.set(
-      dictionaries,
-      forKey: WatchOSPreferencesStore.itinerariesStoreKey
-    )
+    keyValueStore.set(dictionaries, forKey: WatchOSPreferencesStore.itinerariesStoreKey)
 
     self.itineraries = dictionaries.flatMap { dictionary in
       return Itinerary(dictionaryRepresentation: dictionary)

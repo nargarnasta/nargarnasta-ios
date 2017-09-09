@@ -7,8 +7,7 @@ protocol NewItineraryViewControllerDelegate: class {
   )
 }
 
-class NewItineraryViewController: UIViewController,
-LocationSuggestionViewControllerDelegate {
+class NewItineraryViewController: UIViewController, LocationSuggestionViewControllerDelegate {
   weak var notificationCenter: NotificationCenter?
   weak var application: UIApplication?
   weak var delegate: NewItineraryViewControllerDelegate?
@@ -42,11 +41,9 @@ LocationSuggestionViewControllerDelegate {
         notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? Int,
       let curve = UIViewAnimationCurve(rawValue: curveRawValue),
       let keyboardFrame =
-        (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?
-          .cgRectValue,
+        (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
       let duration =
-        notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey]
-          as? TimeInterval
+        notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval
     else {
       return
     }
@@ -55,13 +52,11 @@ LocationSuggestionViewControllerDelegate {
     UIView.setAnimationDuration(duration)
     UIView.setAnimationCurve(curve)
 
-    self.bottomConstraint.constant =
-      -keyboardMargin(keyboardHeight: keyboardFrame.height)
+    self.bottomConstraint.constant = -keyboardMargin(keyboardHeight: keyboardFrame.height)
 
     if !introductionView.isHidden {
       self.introductionView.alpha = 0
-      self.introductionViewTopSpaceConstraint.constant
-        = -self.introductionView.frame.height
+      self.introductionViewTopSpaceConstraint.constant = -self.introductionView.frame.height
     }
 
     self.view.layoutIfNeeded()
@@ -70,9 +65,7 @@ LocationSuggestionViewControllerDelegate {
   }
 
   @IBAction func locationValueChanged(_ sender: UITextField) {
-    guard let query = sender.text, query.characters.count > 1 else {
-      return
-    }
+    guard let query = sender.text, query.characters.count > 1 else { return }
 
     locationSearcher.search(query: query) { locations in
       DispatchQueue.main.async {
@@ -108,9 +101,7 @@ LocationSuggestionViewControllerDelegate {
   }
 
   private func keyboardMargin(keyboardHeight: CGFloat) -> CGFloat {
-    guard
-      let rootView = application?.keyWindow?.rootViewController?.view
-    else {
+    guard let rootView = application?.keyWindow?.rootViewController?.view else {
       fatalError("Can't calculate margin for keyboard without root view")
     }
 
@@ -153,11 +144,7 @@ LocationSuggestionViewControllerDelegate {
   }
 
   override func viewWillDisappear(_ animated: Bool) {
-    notificationCenter?.removeObserver(
-      self,
-      name: .UIKeyboardWillShow,
-      object: nil
-    )
+    notificationCenter?.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
 
     super.viewWillDisappear(animated)
   }
